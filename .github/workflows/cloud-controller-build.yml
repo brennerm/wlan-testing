@@ -1,7 +1,12 @@
-name: OUTDATED cloud controllers build
+name: do not use outdated build
 defaults:
   run:
     shell: bash
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+    - feature/wifi-1350
 
 env:
   AWS_EKS_NAME: tip-wlan-main
@@ -22,12 +27,6 @@ env:
       "version": "2021-02-15"
     }
   ]'
-
-on:
-  workflow_dispatch:
-  pull_request:
-    branches:
-    - feature/wifi-1350
 
 jobs:
   generate-matrix:
