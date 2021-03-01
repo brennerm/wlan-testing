@@ -16,7 +16,12 @@ env:
   CAKEY: ${{ secrets.CAKEY }}
 
   # https://stackoverflow.com/questions/59977364/github-actions-how-use-strategy-matrix-with-script
-  testbeds: '[]'
+  testbeds: '[
+    {
+      "number": "ext-01",
+      "version": "2021-02-15"
+    }
+  ]'
 
 on:
   workflow_dispatch:
@@ -79,8 +84,8 @@ jobs:
     - name: Fetch kubeconfig
       run: |
         aws eks update-kubeconfig  --name ${{ env.AWS_EKS_NAME }}
-    - name: Deploy Cloud SDK
-      working-directory: wlan-helm/tip-wlan
-      run: |
-        helm dependency update
-        helm upgrade --install tip . -f ../../testbed-deployment.yaml --create-namespace --namespace nola-${{ matrix.number }} --wait --timeout 20m
+    # - name: Deploy Cloud SDK
+    #   working-directory: wlan-helm/tip-wlan
+    #   run: |
+    #     helm dependency update
+    #     helm upgrade --install tip . -f ../../testbed-deployment.yaml --create-namespace --namespace nola-${{ matrix.number }} --wait --timeout 20m
