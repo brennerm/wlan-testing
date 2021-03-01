@@ -17,22 +17,6 @@ env:
 
   # https://stackoverflow.com/questions/59977364/github-actions-how-use-strategy-matrix-with-script
   testbeds: '[]'
-    # {
-    #   "number": "ext-01",
-    #   "version": "2021-02-15"
-    # },
-    # {
-    #   "number": "01",
-    #   "version": "latest"
-    # },
-    # {
-    #   "number": "04",
-    #   "version": "latest"
-    # },
-    # {
-    #   "number": "15",
-    #   "version": "latest"
-    # }
 
 on:
   workflow_dispatch:
@@ -58,6 +42,7 @@ jobs:
     needs: [ generate-matrix ]
     strategy:
       matrix: ${{ fromJson( needs.generate-matrix.outputs.matrix ) }}
+      fail-fast: false
     steps:
     - name: Checkout pki scripts repo
       uses: actions/checkout@v2
