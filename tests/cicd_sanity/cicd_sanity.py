@@ -215,13 +215,13 @@ ignore = args.ignore
 test_file = args.file
 
 # Import info for lab setup and APs under test
-test_file = os.path.splitext(test_file)[0]
+file = os.path.splitext(test_file)[0]
 if '/' in test_file:
-    path, file = os.path.split(test_file)
+    path, file = os.path.split(file)
     sys.path.append(path)
     test_info = importlib.import_module(file)
 else:
-    test_info = importlib.import_module(test_file)
+    test_info = importlib.import_module(file)
 
 # AP Upgrade
 jfrog_user = test_info.jfrog_user
@@ -326,6 +326,7 @@ sanity_status = json.load(open("sanity_status.json"))
 
 # Create Report Folder for Today
 today = str(date.today())
+
 try:
     os.mkdir(report_path + today)
 except OSError:
@@ -451,6 +452,7 @@ for key in equipment_ids:
 
         ###Create Test Run
         today = str(date.today())
+        now = datetime.datetime.now()
         case_ids = list(test_cases.values())
 
         ##Remove unused test cases based on command line arguments
@@ -1005,12 +1007,27 @@ for key in equipment_ids:
                     client.update_testrail(case_id=test_cases["bridge_vifc"], run_id=rid, status_id=5,
                                            msg='SSIDs in VIF Config do not match AP Profile Config')
                     report_data['tests'][key][test_cases["bridge_vifc"]] = "failed"
+
+                    print('Writing logs...')
+                    os.system('mkdir -p AP_Logs/' + now.strftime('%B') + '/' + now.strftime('%d') + '/' + file)
+                    logread_output, dmesg_output = ap_connect.copy_logread_dmesg(ap_ip, ap_username, ap_password)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_logread_' + now.strftime('%X').replace(':', '-'),
+                              'w') as log_file:
+                        log_file.write(logread_output)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_dmesg_' + now.strftime('%X').replace(':', '-'),
+                              'w') as dmesg_file:
+                        dmesg_file.write(dmesg_output)
             except:
                 ssid_list = "ERROR"
                 print("Error accessing VIF Config from AP CLI")
                 client.update_testrail(case_id=test_cases["bridge_vifc"], run_id=rid, status_id=4,
                                        msg='Cannot determine VIF Config - re-test required')
                 report_data['tests'][key][test_cases["bridge_vifc"]] = "error"
+
             # VIF State
             try:
                 ssid_state = ap_connect.get_vif_state(ap_ip, ap_username, ap_password)
@@ -1026,6 +1043,20 @@ for key in equipment_ids:
                     client.update_testrail(case_id=test_cases["bridge_vifs"], run_id=rid, status_id=5,
                                            msg='SSIDs in VIF Config not applied to VIF State')
                     report_data['tests'][key][test_cases["bridge_vifs"]] = "failed"
+
+                    print('Writing logs...')
+                    os.system('mkdir -p AP_Logs/' + now.strftime('%B') + '/' + now.strftime('%d') + '/' + file)
+                    logread_output, dmesg_output = ap_connect.copy_logread_dmesg(ap_ip, ap_username, ap_password)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_logread_' + now.strftime('%X').replace(':', '-'),
+                              'w') as log_file:
+                        log_file.write(logread_output)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_dmesg_' + now.strftime('%X').replace(':', '-'),
+                              'w') as dmesg_file:
+                        dmesg_file.write(dmesg_output)
 
             except:
                 ssid_list = "ERROR"
@@ -1405,12 +1436,27 @@ for key in equipment_ids:
                     client.update_testrail(case_id=test_cases["nat_vifc"], run_id=rid, status_id=5,
                                            msg='SSIDs in VIF Config do not match AP Profile Config')
                     report_data['tests'][key][test_cases["nat_vifc"]] = "failed"
+
+                    print('Writing logs...')
+                    os.system('mkdir -p AP_Logs/' + now.strftime('%B') + '/' + now.strftime('%d') + '/' + file)
+                    logread_output, dmesg_output = ap_connect.copy_logread_dmesg(ap_ip, ap_username, ap_password)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_logread_' + now.strftime('%X').replace(':', '-'),
+                              'w') as log_file:
+                        log_file.write(logread_output)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_dmesg_' + now.strftime('%X').replace(':', '-'),
+                              'w') as dmesg_file:
+                        dmesg_file.write(dmesg_output)
             except:
                 ssid_list = "ERROR"
                 print("Error accessing VIF Config from AP CLI")
                 client.update_testrail(case_id=test_cases["nat_vifc"], run_id=rid, status_id=4,
                                        msg='Cannot determine VIF Config - re-test required')
                 report_data['tests'][key][test_cases["nat_vifc"]] = "error"
+
             # VIF State
             try:
                 ssid_state = ap_connect.get_vif_state(ap_ip, ap_username, ap_password)
@@ -1426,6 +1472,20 @@ for key in equipment_ids:
                     client.update_testrail(case_id=test_cases["nat_vifs"], run_id=rid, status_id=5,
                                            msg='SSIDs in VIF Config not applied to VIF State')
                     report_data['tests'][key][test_cases["nat_vifs"]] = "failed"
+
+                    print('Writing logs...')
+                    os.system('mkdir -p AP_Logs/' + now.strftime('%B') + '/' + now.strftime('%d') + '/' + file)
+                    logread_output, dmesg_output = ap_connect.copy_logread_dmesg(ap_ip, ap_username, ap_password)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_logread_' + now.strftime('%X').replace(':', '-'),
+                              'w') as log_file:
+                        log_file.write(logread_output)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_dmesg_' + now.strftime('%X').replace(':', '-'),
+                              'w') as dmesg_file:
+                        dmesg_file.write(dmesg_output)
             except:
                 ssid_list = "ERROR"
                 print("Error accessing VIF State from AP CLI")
@@ -1804,12 +1864,27 @@ for key in equipment_ids:
                     client.update_testrail(case_id=test_cases["vlan_vifc"], run_id=rid, status_id=5,
                                            msg='SSIDs in VIF Config do not match AP Profile Config')
                     report_data['tests'][key][test_cases["vlan_vifc"]] = "failed"
+
+                    print('Writing logs...')
+                    os.system('mkdir -p AP_Logs/' + now.strftime('%B') + '/' + now.strftime('%d') + '/' + file)
+                    logread_output, dmesg_output = ap_connect.copy_logread_dmesg(ap_ip, ap_username, ap_password)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_logread_' + now.strftime('%X').replace(':', '-'),
+                              'w') as log_file:
+                        log_file.write(logread_output)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_dmesg_' + now.strftime('%X').replace(':', '-'),
+                              'w') as dmesg_file:
+                        dmesg_file.write(dmesg_output)
             except:
                 ssid_list = "ERROR"
                 print("Error accessing VIF Config from AP CLI")
                 client.update_testrail(case_id=test_cases["vlan_vifc"], run_id=rid, status_id=4,
                                        msg='Cannot determine VIF Config - re-test required')
                 report_data['tests'][key][test_cases["vlan_vifc"]] = "error"
+
             # VIF State
             try:
                 ssid_state = ap_connect.get_vif_state(ap_ip, ap_username, ap_password)
@@ -1825,6 +1900,20 @@ for key in equipment_ids:
                     client.update_testrail(case_id=test_cases["vlan_vifs"], run_id=rid, status_id=5,
                                            msg='SSIDs in VIF Config not applied to VIF State')
                     report_data['tests'][key][test_cases["vlan_vifs"]] = "failed"
+
+                    print('Writing logs...')
+                    os.system('mkdir -p AP_Logs/' + now.strftime('%B') + '/' + now.strftime('%d') + '/' + file)
+                    logread_output, dmesg_output = ap_connect.copy_logread_dmesg(ap_ip, ap_username, ap_password)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_logread_' + now.strftime('%X').replace(':', '-'),
+                              'w') as log_file:
+                        log_file.write(logread_output)
+
+                    with open('AP_Logs/' + now.strftime('%B') + '/' + now.strftime(
+                            '%d') + '/' + file + '/' + key + '_dmesg_' + now.strftime('%X').replace(':', '-'),
+                              'w') as dmesg_file:
+                        dmesg_file.write(dmesg_output)
             except:
                 ssid_list = "ERROR"
                 print("Error accessing VIF State from AP CLI")
