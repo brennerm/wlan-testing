@@ -562,7 +562,10 @@ for key in equipment_ids:
             print("Latest Firmware", latest_image, "is already on CloudSDK, need to delete to test create FW API")
             old_fw_id = CloudSDK.get_firmware_id(latest_image, cloudSDK_url, bearer)
             delete_fw = CloudSDK.delete_firmware(str(old_fw_id), cloudSDK_url, bearer)
-            fw_url = "https://" + jfrog_user + ":" + jfrog_pwd + "@tip.jfrog.io/artifactory/tip-wlan-ap-firmware/" + key + "/dev/" + latest_image + ".tar.gz"
+            if trunk_image:
+                fw_url = "https://" + jfrog_user + ":" + jfrog_pwd + "@tip.jfrog.io/artifactory/tip-wlan-ap-firmware/" + key + "/trunk/" + latest_image + ".tar.gz"
+            else:
+                fw_url = "https://" + jfrog_user + ":" + jfrog_pwd + "@tip.jfrog.io/artifactory/tip-wlan-ap-firmware/" + key + "/dev/" + latest_image + ".tar.gz"
             commit = latest_image.split("-")[-1]
             try:
                 fw_upload_status = CloudSDK.firwmare_upload(commit, cloudModel, latest_image, fw_url, cloudSDK_url,
@@ -581,7 +584,10 @@ for key in equipment_ids:
                 continue
         else:
             print("Latest Firmware is not on CloudSDK! Uploading...")
-            fw_url = "https://" + jfrog_user + ":" + jfrog_pwd + "@tip.jfrog.io/artifactory/tip-wlan-ap-firmware/" + key + "/dev/" + latest_image + ".tar.gz"
+            if trunk_image:
+                fw_url = "https://" + jfrog_user + ":" + jfrog_pwd + "@tip.jfrog.io/artifactory/tip-wlan-ap-firmware/" + key + "/trunk/" + latest_image + ".tar.gz"
+            else:
+                fw_url = "https://" + jfrog_user + ":" + jfrog_pwd + "@tip.jfrog.io/artifactory/tip-wlan-ap-firmware/" + key + "/dev/" + latest_image + ".tar.gz"
             commit = latest_image.split("-")[-1]
             try:
                 fw_upload_status = CloudSDK.firwmare_upload(commit, cloudModel, latest_image, fw_url, cloudSDK_url,

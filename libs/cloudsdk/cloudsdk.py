@@ -33,9 +33,9 @@ import json
 import logging
 import datetime
 import time
-# from ap_ssh import ssh_cli_active_fw
+from ap_ssh import ssh_cli_active_fw
 # import lab_ap_info
-# import ap_ssh
+import ap_ssh
 
 
 ###Class for CloudSDK Interaction via RestAPI
