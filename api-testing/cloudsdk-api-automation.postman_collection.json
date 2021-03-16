@@ -183,7 +183,8 @@
 											"description": "(Required) customer id"
 										}
 									]
-								}
+								},
+								"description": "Test that customer ID requested is returned"
 							},
 							"response": [
 								{
@@ -1716,6 +1717,531 @@
 									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
 								}
 							]
+						},
+						{
+							"name": "Get Equipment By customerId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8987 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8987 Returned equipment are only from customer\", function () {",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData.items, (item) => {",
+											"        pm.expect(item.customerId).to.equal(parseInt(pm.environment.get('customerId')))",
+											"    })",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/equipment/forCustomer?customerId={{customerId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"equipment",
+										"forCustomer"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "{{customerId}}",
+											"description": "(Required) customer id"
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "paginationContext",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/equipment/forCustomer?customerId=<long>&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"equipment",
+												"forCustomer"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"items\": [\n  {\n   \"equipmentType\": \"AP\",\n   \"customerId\": 2,\n   \"profileId\": 1,\n   \"locationId\": 2,\n   \"inventoryId\": \"example_ap\",\n   \"serial\": \"example_serial\",\n   \"name\": \"example AP\"\n  },\n  {\n   \"equipmentType\": \"AP\",\n   \"customerId\": 2,\n   \"profileId\": 1,\n   \"locationId\": 2,\n   \"inventoryId\": \"example_ap\",\n   \"serial\": \"example_serial\",\n   \"name\": \"example AP\"\n  }\n ],\n \"context\": {\n  \"model_type\": \"PaginationContext\",\n  \"maxItemsPerPage\": 10\n }\n}"
+								},
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/equipment/forCustomer?customerId=<long>&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"equipment",
+												"forCustomer"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Equipment for customerId, equipment type, and location id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8986 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8986 Returned equipment are only from customer\", function () {",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData.items, (item) => {",
+											"        pm.expect(item.customerId).to.equal(parseInt(pm.environment.get('customerId')))",
+											"    })",
+											"})",
+											"",
+											"pm.test(\"C8986 Returned equipment are only from location\", function () {",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData.items, (item) => {",
+											"        pm.expect(item.locationId).to.equal(parseInt(pm.environment.get('existingLocationId')))",
+											"    })",
+											"})",
+											"",
+											"pm.test(\"C8986 Returned equipment are only equipment type AP\", function () {",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData.items, (item) => {",
+											"        pm.expect(item.equipmentType).to.equal('AP')",
+											"    })",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/equipment/forCustomerWithFilter?customerId={{customerId}}&equipmentType=AP&locationIds={{existingLocationId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"equipment",
+										"forCustomerWithFilter"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "{{customerId}}",
+											"description": "(Required) customer id"
+										},
+										{
+											"key": "equipmentType",
+											"value": "AP"
+										},
+										{
+											"key": "locationIds",
+											"value": "{{existingLocationId}}",
+											"description": "set of location ids"
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "paginationContext",
+											"value": "",
+											"description": "(Required) pagination context",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/equipment/forCustomerWithFilter?customerId=<long>&equipmentType=<string>&locationIds=&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"equipment",
+												"forCustomerWithFilter"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "equipmentType",
+													"value": "<string>"
+												},
+												{
+													"key": "locationIds",
+													"value": ""
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/equipment/forCustomerWithFilter?customerId=<long>&equipmentType=<string>&locationIds=&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"equipment",
+												"forCustomerWithFilter"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "equipmentType",
+													"value": "<string>"
+												},
+												{
+													"key": "locationIds",
+													"value": ""
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"items\": [\n  {\n   \"equipmentType\": \"AP\",\n   \"customerId\": 2,\n   \"profileId\": 1,\n   \"locationId\": 2,\n   \"inventoryId\": \"example_ap\",\n   \"serial\": \"example_serial\",\n   \"name\": \"example AP\"\n  },\n  {\n   \"equipmentType\": \"AP\",\n   \"customerId\": 2,\n   \"profileId\": 1,\n   \"locationId\": 2,\n   \"inventoryId\": \"example_ap\",\n   \"serial\": \"example_serial\",\n   \"name\": \"example AP\"\n  }\n ],\n \"context\": {\n  \"model_type\": \"PaginationContext\",\n  \"maxItemsPerPage\": 10\n }\n}"
+								}
+							]
+						},
+						{
+							"name": "Get default values for Equipment details for a specific equipment type - AP",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8988 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8988 User profile retrieved by username\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    getType = jsonData.equipmentType",
+											"    pm.expect(getType).to.eql('AP');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/equipment/defaultDetails?equipmentType=AP",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"equipment",
+										"defaultDetails"
+									],
+									"query": [
+										{
+											"key": "equipmentType",
+											"value": "AP"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/equipment/defaultDetails?equipmentType=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"equipment",
+												"defaultDetails"
+											],
+											"query": [
+												{
+													"key": "equipmentType",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"esse aliquip est\",\n \"path\": \"c\",\n \"timestamp\": 13307210\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/equipment/defaultDetails?equipmentType=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"equipment",
+												"defaultDetails"
+											],
+											"query": [
+												{
+													"key": "equipmentType",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"model_type\": \"<string>\",\n \"elementConfigVersion\": \"<string>\",\n \"equipmentType\": \"<string>\",\n \"deviceMode\": \"<string>\",\n \"gettingIP\": \"<string>\",\n \"staticIP\": \"<string>\",\n \"staticIpMaskCidr\": \"<integer>\",\n \"staticIpGw\": \"<string>\",\n \"gettingDNS\": \"<string>\",\n \"staticDnsIp1\": \"<string>\",\n \"staticDnsIp2\": \"<string>\",\n \"peerInfoList\": [\n  {\n   \"peerMAC\": [\n    \"<byte>\",\n    \"<byte>\"\n   ],\n   \"peerIP\": \"<string>\",\n   \"tunnel\": \"<string>\",\n   \"vlans\": [\n    \"<byte>\",\n    \"<byte>\"\n   ],\n   \"radiusSecret\": \"<string>\"\n  },\n  {\n   \"peerMAC\": [\n    \"<byte>\",\n    \"<byte>\"\n   ],\n   \"peerIP\": \"<string>\",\n   \"tunnel\": \"<string>\",\n   \"vlans\": [\n    \"<byte>\",\n    \"<byte>\"\n   ],\n   \"radiusSecret\": \"<string>\"\n  }\n ],\n \"deviceName\": \"<string>\",\n \"locationData\": \"<string>\",\n \"locallyConfiguredMgmtVlan\": \"<integer>\",\n \"locallyConfigured\": \"<boolean>\",\n \"deploymentType\": \"<string>\",\n \"syntheticClientEnabled\": \"<boolean>\",\n \"frameReportThrottleEnabled\": \"<boolean>\",\n \"antennaType\": \"<string>\",\n \"costSavingEventsEnabled\": \"<boolean>\",\n \"forwardMode\": \"<string>\",\n \"radioMap\": {\n  \"is5GHz\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"channelNumber\": \"<integer>\",\n   \"manualChannelNumber\": \"<integer>\",\n   \"backupChannelNumber\": \"<integer>\",\n   \"manualBackupChannelNumber\": \"<integer>\",\n   \"rxCellSizeDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"probeResponseThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"clientDisconnectThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"eirpTxPower\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"perimeterDetectionEnabled\": \"<boolean>\",\n   \"bestAPSteerType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"deauthAttackDetection\": \"<boolean>\",\n   \"allowedChannelsPowerLevels\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  },\n  \"is5GHzU\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"channelNumber\": \"<integer>\",\n   \"manualChannelNumber\": \"<integer>\",\n   \"backupChannelNumber\": \"<integer>\",\n   \"manualBackupChannelNumber\": \"<integer>\",\n   \"rxCellSizeDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"probeResponseThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"clientDisconnectThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"eirpTxPower\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"perimeterDetectionEnabled\": \"<boolean>\",\n   \"bestAPSteerType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"deauthAttackDetection\": \"<boolean>\",\n   \"allowedChannelsPowerLevels\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  },\n  \"is5GHzL\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"channelNumber\": \"<integer>\",\n   \"manualChannelNumber\": \"<integer>\",\n   \"backupChannelNumber\": \"<integer>\",\n   \"manualBackupChannelNumber\": \"<integer>\",\n   \"rxCellSizeDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"probeResponseThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"clientDisconnectThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"eirpTxPower\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"perimeterDetectionEnabled\": \"<boolean>\",\n   \"bestAPSteerType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"deauthAttackDetection\": \"<boolean>\",\n   \"allowedChannelsPowerLevels\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  },\n  \"is2dot4GHz\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"channelNumber\": \"<integer>\",\n   \"manualChannelNumber\": \"<integer>\",\n   \"backupChannelNumber\": \"<integer>\",\n   \"manualBackupChannelNumber\": \"<integer>\",\n   \"rxCellSizeDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"probeResponseThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"clientDisconnectThresholdDb\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"eirpTxPower\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"perimeterDetectionEnabled\": \"<boolean>\",\n   \"bestAPSteerType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"deauthAttackDetection\": \"<boolean>\",\n   \"allowedChannelsPowerLevels\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   }\n  }\n },\n \"advancedRadioMap\": {\n  \"is5GHz\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"radioAdminState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"fragmentationThresholdBytes\": \"<integer>\",\n   \"uapsdState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"stationIsolation\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"multicastRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"managementRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"bestApSettings\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"legacyBSSRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"dtimPeriod\": \"<integer>\",\n   \"deauthAttackDetection\": \"<boolean>\"\n  },\n  \"is5GHzU\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"radioAdminState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"fragmentationThresholdBytes\": \"<integer>\",\n   \"uapsdState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"stationIsolation\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"multicastRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"managementRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"bestApSettings\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"legacyBSSRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"dtimPeriod\": \"<integer>\",\n   \"deauthAttackDetection\": \"<boolean>\"\n  },\n  \"is5GHzL\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"radioAdminState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"fragmentationThresholdBytes\": \"<integer>\",\n   \"uapsdState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"stationIsolation\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"multicastRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"managementRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"bestApSettings\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"legacyBSSRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"dtimPeriod\": \"<integer>\",\n   \"deauthAttackDetection\": \"<boolean>\"\n  },\n  \"is2dot4GHz\": {\n   \"radioType\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"radioAdminState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"fragmentationThresholdBytes\": \"<integer>\",\n   \"uapsdState\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"stationIsolation\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"multicastRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"managementRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"bestApSettings\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"legacyBSSRate\": {\n    \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n   },\n   \"dtimPeriod\": \"<integer>\",\n   \"deauthAttackDetection\": \"<boolean>\"\n  }\n }\n}"
+								}
+							]
 						}
 					]
 				},
@@ -2773,6 +3299,566 @@
 										{
 											"key": "profileId",
 											"value": "{{radiusProfileId}}",
+											"description": "(Required) profile id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile?profileId=<long>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											],
+											"query": [
+												{
+													"key": "profileId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"profileType\": \"equipment_ap\",\n \"customerId\": 2,\n \"name\": \"example AP profile\"\n}"
+								},
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile?profileId=<long>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											],
+											"query": [
+												{
+													"key": "profileId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"amet voluptate\",\n \"path\": \"ullamco in nulla\",\n \"timestamp\": 13987051\n}"
+								}
+							]
+						},
+						{
+							"name": "Create new Profile - RF Profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8989 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8989 Created values match configured RF profile values\", function () {",
+											"    var createProfile = pm.request.body;",
+											"    var createProfileJson = JSON.parse(createProfile);",
+											"    delete createProfileJson.id;",
+											"    delete createProfileJson.lastModifiedTimestamp;",
+											"    delete createProfileJson.createdTimestamp;",
+											"    var createProfile = JSON.stringify(createProfileJson)",
+											"    ",
+											"    var jsonData = pm.response.json();",
+											"    delete jsonData.id;",
+											"    delete jsonData.lastModifiedTimestamp;",
+											"    delete jsonData.createdTimestamp;",
+											"    var jsonString = JSON.stringify(jsonData);",
+											"",
+											"    pm.expect(jsonString).to.eql(createProfile);",
+											"",
+											"});",
+											"",
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"rfProfileId\", data.id);",
+											"postman.setEnvironmentVariable(\"createdTimeRfProfile\", data.createdTimestamp);",
+											"postman.setEnvironmentVariable(\"modifiedTimeRfProfile\", data.lastModifiedTimestamp);",
+											"",
+											"var newRfProfile = JSON.stringify(data);",
+											"postman.setEnvironmentVariable(\"newRfProfile\", newRfProfile);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model_type\": \"Profile\",\n    \"id\": 0,\n    \"customerId\": 2,\n    \"profileType\": \"rf\",\n    \"name\": \"API Automation RF Profile\",\n    \"details\": {\n        \"model_type\": \"RfConfiguration\",\n        \"rfConfigMap\": {\n            \"is2dot4GHz\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is2dot4GHz\",\n                \"radioMode\": \"modeN\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is20MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 20,\n                    \"minLoadFactor\": 50\n                }\n            },\n            \"is5GHz\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is5GHz\",\n                \"radioMode\": \"modeAC\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is80MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 30,\n                    \"minLoadFactor\": 40\n                }\n            },\n            \"is5GHzL\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is5GHzL\",\n                \"radioMode\": \"modeAC\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is80MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 30,\n                    \"minLoadFactor\": 40\n                }\n            },\n            \"is5GHzU\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is5GHzU\",\n                \"radioMode\": \"modeAC\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is80MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 30,\n                    \"minLoadFactor\": 40\n                }\n            }\n        },\n        \"profileType\": \"rf\"\n    },\n    \"createdTimestamp\": 0,\n    \"lastModifiedTimestamp\": 1615830303665,\n    \"childProfileIds\": []\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/portal/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"amet voluptate\",\n \"path\": \"ullamco in nulla\",\n \"timestamp\": 13987051\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"profileType\": \"equipment_ap\",\n \"customerId\": 2,\n \"name\": \"example AP profile\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get Profile By Id - RF profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8990 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8990 Values match created AP Profile\", function () {",
+											"    var newProfile = pm.environment.get(\"newRfProfile\")",
+											"    var jsonData = pm.response.json();",
+											"    var jsonString = JSON.stringify(jsonData)",
+											"    pm.expect(jsonString).to.eql(newProfile);",
+											"",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseUrl}}/portal/profile?profileId={{rfProfileId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"profile"
+									],
+									"query": [
+										{
+											"key": "profileId",
+											"value": "{{rfProfileId}}",
+											"description": "(Required) profile id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile?profileId=<long>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											],
+											"query": [
+												{
+													"key": "profileId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"amet voluptate\",\n \"path\": \"ullamco in nulla\",\n \"timestamp\": 13987051\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile?profileId=<long>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											],
+											"query": [
+												{
+													"key": "profileId",
+													"value": "<long>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"profileType\": \"equipment_ap\",\n \"customerId\": 2,\n \"name\": \"example AP profile\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Profile - RF Profile",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8991 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8991 Updated value(s) pushed to RF profile\", function () {",
+											"    var updatedProfile = pm.request.body",
+											"    var updatedProfileJson = JSON.parse(updatedProfile);",
+											"    delete updatedProfileJson.lastModifiedTimestamp;",
+											"    var updatedProfile = JSON.stringify(updatedProfileJson)",
+											"    ",
+											"    var jsonData = pm.response.json();",
+											"    console.log('Updated profile '+jsonData.id)",
+											"    delete jsonData.lastModifiedTimestamp;",
+											"    var jsonString = JSON.stringify(jsonData);",
+											"",
+											"",
+											"    pm.expect(jsonString).to.eql(updatedProfile);",
+											"",
+											"});",
+											"",
+											"var data = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"modifiedTimeRfProfile\", data.lastModifiedTimestamp);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model_type\": \"Profile\",\n    \"id\": {{rfProfileId}},\n    \"customerId\": 2,\n    \"profileType\": \"rf\",\n    \"name\": \"API Automation RF Profile - Updated\",\n    \"details\": {\n        \"model_type\": \"RfConfiguration\",\n        \"rfConfigMap\": {\n            \"is2dot4GHz\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is2dot4GHz\",\n                \"radioMode\": \"modeN\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is20MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 20,\n                    \"minLoadFactor\": 50\n                }\n            },\n            \"is5GHz\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is5GHz\",\n                \"radioMode\": \"modeAC\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is80MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 30,\n                    \"minLoadFactor\": 40\n                }\n            },\n            \"is5GHzL\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is5GHzL\",\n                \"radioMode\": \"modeAC\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is80MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 30,\n                    \"minLoadFactor\": 40\n                }\n            },\n            \"is5GHzU\": {\n                \"model_type\": \"RfElementConfiguration\",\n                \"radioType\": \"is5GHzU\",\n                \"radioMode\": \"modeAC\",\n                \"rf\": \"TipWlan-rf\",\n                \"beaconInterval\": 100,\n                \"forceScanDuringVoice\": \"disabled\",\n                \"rtsCtsThreshold\": 65535,\n                \"channelBandwidth\": \"is80MHz\",\n                \"mimoMode\": \"none\",\n                \"maxNumClients\": 100,\n                \"autoChannelSelection\": false,\n                \"activeScanSettings\": {\n                    \"model_type\": \"ActiveScanSettings\",\n                    \"enabled\": true,\n                    \"scanFrequencySeconds\": 10,\n                    \"scanDurationMillis\": 65\n                },\n                \"neighbouringListApConfig\": {\n                    \"model_type\": \"NeighbouringAPListConfiguration\",\n                    \"minSignal\": -85,\n                    \"maxAps\": 25\n                },\n                \"minAutoCellSize\": -65,\n                \"perimeterDetectionEnabled\": true,\n                \"channelHopSettings\": {\n                    \"model_type\": \"ChannelHopSettings\",\n                    \"noiseFloorThresholdInDB\": -75,\n                    \"noiseFloorThresholdTimeInSeconds\": 180,\n                    \"nonWifiThresholdInPercentage\": 50,\n                    \"nonWifiThresholdTimeInSeconds\": 180,\n                    \"obssHopMode\": \"NON_WIFI\"\n                },\n                \"bestApEnabled\": null,\n                \"multicastRate\": \"auto\",\n                \"managementRate\": \"auto\",\n                \"rxCellSizeDb\": -90,\n                \"probeResponseThresholdDb\": -90,\n                \"clientDisconnectThresholdDb\": -90,\n                \"eirpTxPower\": 18,\n                \"bestApSettings\": {\n                    \"model_type\": \"RadioBestApSettings\",\n                    \"mlComputed\": false,\n                    \"dropInSnrPercentage\": 30,\n                    \"minLoadFactor\": 40\n                }\n            }\n        },\n        \"profileType\": \"rf\"\n    },\n    \"createdTimestamp\": {{createdTimeRfProfile}},\n    \"lastModifiedTimestamp\": {{modifiedTimeRfProfile}},\n    \"childProfileIds\": []\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/portal/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"amet voluptate\",\n \"path\": \"ullamco in nulla\",\n \"timestamp\": 13987051\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"profileType\": \"equipment_ap\",\n \"customerId\": 2,\n \"name\": \"example AP profile\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Profile - RF Profile ",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8992 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8992 Proper RF profile deleted\", function () {",
+											"    var jsonData = pm.response.json();",
+											"    var profileId = parseInt(pm.environment.get(\"rfProfileId\"));",
+											"    console.log(\"deleted profile \"+jsonData.id)",
+											"    pm.expect(jsonData.id).to.equal(profileId);",
+											"",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/profile?profileId={{rfProfileId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"profile"
+									],
+									"query": [
+										{
+											"key": "profileId",
+											"value": "{{rfProfileId}}",
 											"description": "(Required) profile id"
 										}
 									]
@@ -4180,6 +5266,210 @@
 									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
 								}
 							]
+						},
+						{
+							"name": "Get Profiles By customerId - Profile Name Substring",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8993 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8993 Returned profiles have only requested substring (case insensitive)\", function () {",
+											"nameSubstring = pm.request.url.query.toObject().nameSubstring",
+											"console.log(nameSubstring)",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData.items, (item) => {",
+											"        pm.expect(item.name.toLowerCase()).to.contain(nameSubstring.toLowerCase())",
+											"    })",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/profile/forCustomer?customerId={{customerId}}&nameSubstring=rf",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"profile",
+										"forCustomer"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "{{customerId}}",
+											"description": "(Required) customer id"
+										},
+										{
+											"key": "nameSubstring",
+											"value": "rf"
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "paginationContext",
+											"value": "limit",
+											"disabled": true
+										},
+										{
+											"key": "profileType",
+											"value": "<string>",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Only profiles with string in name should be returned"
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile/forCustomer?customerId=<long>&profileType=&nameSubstring=<string>&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile",
+												"forCustomer"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "profileType",
+													"value": ""
+												},
+												{
+													"key": "nameSubstring",
+													"value": "<string>"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile/forCustomer?customerId=<long>&profileType=&nameSubstring=<string>&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile",
+												"forCustomer"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "profileType",
+													"value": ""
+												},
+												{
+													"key": "nameSubstring",
+													"value": "<string>"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"items\": [\n  {\n   \"profileType\": \"equipment_ap\",\n   \"customerId\": 2,\n   \"name\": \"example AP profile\"\n  },\n  {\n   \"profileType\": \"equipment_ap\",\n   \"customerId\": 2,\n   \"name\": \"example AP profile\"\n  }\n ],\n \"context\": {\n  \"model_type\": \"PaginationContext\",\n  \"maxItemsPerPage\": 10\n }\n}"
+								}
+							]
 						}
 					]
 				},
@@ -5114,6 +6404,183 @@
 									"body": "{\n \"id\": \"<long>\",\n \"customerId\": \"<integer>\",\n \"username\": \"<string>\",\n \"password\": \"<string>\",\n \"roles\": [\n  \"<string>\",\n  \"<string>\"\n ],\n \"createdTimestamp\": \"<long>\",\n \"lastModifiedTimestamp\": \"<long>\"\n}"
 								}
 							]
+						},
+						{
+							"name": "Get PortalUsers By customerId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8994 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C8994 Returned users are only from customer\", function () {",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData.items, (item) => {",
+											"        pm.expect(item.customerId).to.equal(parseInt(pm.environment.get('customerId')))",
+											"    })",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/portalUser/forCustomer?customerId={{customerId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"portalUser",
+										"forCustomer"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "{{customerId}}",
+											"description": "(Required) customer id"
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "{\"model_type\":\"<string>\",\"columnName\":\"id\",\"sortOrder\":\"asc\"}",
+											"description": "sort options",
+											"disabled": true
+										},
+										{
+											"key": "paginationContext",
+											"value": "",
+											"description": "(Required) pagination context",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/portalUser/forCustomer?customerId=<long>&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"portalUser",
+												"forCustomer"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"items\": [\n  {\n   \"id\": \"<long>\",\n   \"customerId\": \"<integer>\",\n   \"username\": \"<string>\",\n   \"password\": \"<string>\",\n   \"roles\": [\n    \"<string>\",\n    \"<string>\"\n   ],\n   \"createdTimestamp\": \"<long>\",\n   \"lastModifiedTimestamp\": \"<long>\"\n  },\n  {\n   \"id\": \"<long>\",\n   \"customerId\": \"<integer>\",\n   \"username\": \"<string>\",\n   \"password\": \"<string>\",\n   \"roles\": [\n    \"<string>\",\n    \"<string>\"\n   ],\n   \"createdTimestamp\": \"<long>\",\n   \"lastModifiedTimestamp\": \"<long>\"\n  }\n ],\n \"context\": {\n  \"model_type\": \"PaginationContext\",\n  \"maxItemsPerPage\": 10\n }\n}"
+								},
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/portalUser/forCustomer?customerId=<long>&sortBy=[object Object]&sortBy=[object Object]&paginationContext=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"portalUser",
+												"forCustomer"
+											],
+											"query": [
+												{
+													"key": "customerId",
+													"value": "<long>"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "sortBy",
+													"value": "[object Object]"
+												},
+												{
+													"key": "paginationContext",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"esse aliquip est\",\n \"path\": \"c\",\n \"timestamp\": 13307210\n}"
+								}
+							]
 						}
 					],
 					"event": [
@@ -5134,6 +6601,723 @@
 									""
 								]
 							}
+						}
+					]
+				},
+				{
+					"name": "firmware",
+					"item": [
+						{
+							"name": "version",
+							"item": [
+								{
+									"name": "Create new FirmwareVersion",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"C8981 Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"C8981 Created values match configured firmware values\", function () {",
+													"    var create = pm.request.body;",
+													"    var createJson = JSON.parse(create);",
+													"    delete createJson.id;",
+													"    delete createJson.lastModifiedTimestamp;",
+													"    delete createJson.createdTimestamp;",
+													"    var create = JSON.stringify(createJson)",
+													"    ",
+													"    var jsonData = pm.response.json();",
+													"    delete jsonData.id;",
+													"    delete jsonData.lastModifiedTimestamp;",
+													"    delete jsonData.createdTimestamp;",
+													"    var jsonString = JSON.stringify(jsonData);",
+													"",
+													"    pm.expect(jsonString).to.eql(create);",
+													"",
+													"});",
+													"",
+													"var data = JSON.parse(responseBody);",
+													"postman.setEnvironmentVariable(\"firmwareVersionId\", data.id);",
+													"postman.setEnvironmentVariable(\"createdTimeFirmwareVersion\", data.createdTimestamp);",
+													"postman.setEnvironmentVariable(\"modifiedTimeFirmwareVersion\", data.lastModifiedTimestamp);",
+													"postman.setEnvironmentVariable(\"firmwareVersionName\", data.versionName);",
+													"var newFirmwareVersion = JSON.stringify(data);",
+													"postman.setEnvironmentVariable(\"newFirmwareVersion\", newFirmwareVersion);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"model_type\": \"FirmwareVersion\",\n    \"id\": 5,\n    \"equipmentType\": \"AP\",\n    \"modelId\": \"ECW5410\",\n    \"versionName\": \"ecw5410-2021-01-01-1234567\",\n    \"description\": \"ECW5410 API Automation FW Test\",\n    \"filename\": \"https://api-automation.com/filename.tar.gz\",\n    \"commit\": \"1234567\",\n    \"validationMethod\": \"MD5_CHECKSUM\",\n    \"validationCode\": \"5d944896e54f96422dd0da921d4dd310\",\n    \"releaseDate\": 1609498800,\n    \"createdTimestamp\": 0,\n    \"lastModifiedTimestamp\": 0\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/firmware/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"firmware",
+												"version"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "this object is returned in the cases when an API throws an exception",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"<long>\",\n    \"equipmentType\": \"<string>\",\n    \"modelId\": \"<string>\",\n    \"versionName\": \"<string>\",\n    \"description\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"commit\": \"<string>\",\n    \"validationMethod\": \"<string>\",\n    \"validationCode\": \"<string>\",\n    \"releaseDate\": \"<long>\",\n    \"createdTimestamp\": \"<long>\",\n    \"lastModifiedTimestamp\": \"<long>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+										},
+										{
+											"name": "successful operation",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"<long>\",\n    \"equipmentType\": \"<string>\",\n    \"modelId\": \"<string>\",\n    \"versionName\": \"<string>\",\n    \"description\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"commit\": \"<string>\",\n    \"validationMethod\": \"<string>\",\n    \"validationCode\": \"<string>\",\n    \"releaseDate\": \"<long>\",\n    \"createdTimestamp\": \"<long>\",\n    \"lastModifiedTimestamp\": \"<long>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": \"<long>\",\n \"equipmentType\": \"<string>\",\n \"modelId\": \"<string>\",\n \"versionName\": \"<string>\",\n \"description\": \"<string>\",\n \"filename\": \"<string>\",\n \"commit\": \"<string>\",\n \"validationMethod\": \"<string>\",\n \"validationCode\": \"<string>\",\n \"releaseDate\": \"<long>\",\n \"createdTimestamp\": \"<long>\",\n \"lastModifiedTimestamp\": \"<long>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Get FirmwareVersion By Id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"C8982 Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"C8982 Values match created firmware version\", function () {",
+													"    var newFirmwareVersion = pm.environment.get(\"newFirmwareVersion\")",
+													"    var jsonData = pm.response.json();",
+													"    var jsonString = JSON.stringify(jsonData)",
+													"    pm.expect(jsonString).to.eql(newFirmwareVersion);",
+													"",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/portal/firmware/version?firmwareVersionId={{firmwareVersionId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"firmware",
+												"version"
+											],
+											"query": [
+												{
+													"key": "firmwareVersionId",
+													"value": "{{firmwareVersionId}}",
+													"description": "(Required) firmwareVersion id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "this object is returned in the cases when an API throws an exception",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version?firmwareVersionId=<long>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													],
+													"query": [
+														{
+															"key": "firmwareVersionId",
+															"value": "<long>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+										},
+										{
+											"name": "successful operation",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version?firmwareVersionId=<long>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													],
+													"query": [
+														{
+															"key": "firmwareVersionId",
+															"value": "<long>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": \"<long>\",\n \"equipmentType\": \"<string>\",\n \"modelId\": \"<string>\",\n \"versionName\": \"<string>\",\n \"description\": \"<string>\",\n \"filename\": \"<string>\",\n \"commit\": \"<string>\",\n \"validationMethod\": \"<string>\",\n \"validationCode\": \"<string>\",\n \"releaseDate\": \"<long>\",\n \"createdTimestamp\": \"<long>\",\n \"lastModifiedTimestamp\": \"<long>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Get FirmwareVersion By name",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"C8983 Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"C8983 Values match created firmware version\", function () {",
+													"    var newFirmwareVersion = pm.environment.get(\"newFirmwareVersion\")",
+													"    var jsonData = pm.response.json();",
+													"    var jsonString = JSON.stringify(jsonData)",
+													"    pm.expect(jsonString).to.eql(newFirmwareVersion);",
+													"",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/portal/firmware/version/byName?firmwareVersionName={{firmwareVersionName}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"firmware",
+												"version",
+												"byName"
+											],
+											"query": [
+												{
+													"key": "firmwareVersionName",
+													"value": "{{firmwareVersionName}}",
+													"description": "(Required) firmwareVersion name"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "this object is returned in the cases when an API throws an exception",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version/byName?firmwareVersionName=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version",
+														"byName"
+													],
+													"query": [
+														{
+															"key": "firmwareVersionName",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+										},
+										{
+											"name": "successful operation",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version/byName?firmwareVersionName=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version",
+														"byName"
+													],
+													"query": [
+														{
+															"key": "firmwareVersionName",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": \"<long>\",\n \"equipmentType\": \"<string>\",\n \"modelId\": \"<string>\",\n \"versionName\": \"<string>\",\n \"description\": \"<string>\",\n \"filename\": \"<string>\",\n \"commit\": \"<string>\",\n \"validationMethod\": \"<string>\",\n \"validationCode\": \"<string>\",\n \"releaseDate\": \"<long>\",\n \"createdTimestamp\": \"<long>\",\n \"lastModifiedTimestamp\": \"<long>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Update FirmwareVersion",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"C8985 Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"C8985 Updated value(s) pushed to firmware version\", function () {",
+													"    var updated = pm.request.body",
+													"    var updatedJson = JSON.parse(updated);",
+													"    delete updatedJson.lastModifiedTimestamp;",
+													"    var updated = JSON.stringify(updatedJson)",
+													"    ",
+													"    var jsonData = pm.response.json();",
+													"    delete jsonData.lastModifiedTimestamp;",
+													"    var jsonString = JSON.stringify(jsonData);",
+													"",
+													"",
+													"    pm.expect(jsonString).to.eql(updated);",
+													"",
+													"});",
+													"",
+													"var data = JSON.parse(responseBody);",
+													"postman.setEnvironmentVariable(\"modifiedTimeFirmwareVersion\", data.lastModifiedTimestamp);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"model_type\": \"FirmwareVersion\",\n    \"id\": {{firmwareVersionId}},\n    \"equipmentType\": \"AP\",\n    \"modelId\": \"ECW5410\",\n    \"versionName\": \"ecw5410-2021-01-01-1234567\",\n    \"description\": \"ECW5410 API Automation FW Test Updated\",\n    \"filename\": \"https://api-automation.com/filename.tar.gz\",\n    \"commit\": \"1234567\",\n    \"validationMethod\": \"MD5_CHECKSUM\",\n    \"validationCode\": \"5d944896e54f96422dd0da921d4dd310\",\n    \"releaseDate\": 1609498800,\n    \"createdTimestamp\": {{createdTimeFirmwareVersion}},\n    \"lastModifiedTimestamp\": {{modifiedTimeFirmwareVersion}}\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/firmware/version",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"firmware",
+												"version"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "successful operation",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"<long>\",\n    \"equipmentType\": \"<string>\",\n    \"modelId\": \"<string>\",\n    \"versionName\": \"<string>\",\n    \"description\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"commit\": \"<string>\",\n    \"validationMethod\": \"<string>\",\n    \"validationCode\": \"<string>\",\n    \"releaseDate\": \"<long>\",\n    \"createdTimestamp\": \"<long>\",\n    \"lastModifiedTimestamp\": \"<long>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": \"<long>\",\n \"equipmentType\": \"<string>\",\n \"modelId\": \"<string>\",\n \"versionName\": \"<string>\",\n \"description\": \"<string>\",\n \"filename\": \"<string>\",\n \"commit\": \"<string>\",\n \"validationMethod\": \"<string>\",\n \"validationCode\": \"<string>\",\n \"releaseDate\": \"<long>\",\n \"createdTimestamp\": \"<long>\",\n \"lastModifiedTimestamp\": \"<long>\"\n}"
+										},
+										{
+											"name": "this object is returned in the cases when an API throws an exception",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"<long>\",\n    \"equipmentType\": \"<string>\",\n    \"modelId\": \"<string>\",\n    \"versionName\": \"<string>\",\n    \"description\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"commit\": \"<string>\",\n    \"validationMethod\": \"<string>\",\n    \"validationCode\": \"<string>\",\n    \"releaseDate\": \"<long>\",\n    \"createdTimestamp\": \"<long>\",\n    \"lastModifiedTimestamp\": \"<long>\"\n}"
+												},
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+										}
+									]
+								},
+								{
+									"name": "Delete FirmwareVersion",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"pm.test(\"C8984 Status code is 200\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"",
+													"pm.test(\"C8984 Proper FW version deleted\", function () {",
+													"    var jsonData = pm.response.json();",
+													"    var profileId = parseInt(pm.environment.get(\"firmwareVersionId\"));",
+													"    console.log(\"deleted profile \"+jsonData.id)",
+													"    pm.expect(jsonData.id).to.equal(profileId);",
+													"",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/portal/firmware/version?firmwareVersionId={{firmwareVersionId}}",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"firmware",
+												"version"
+											],
+											"query": [
+												{
+													"key": "firmwareVersionId",
+													"value": "{{firmwareVersionId}}",
+													"description": "(Required) firmwareVersion id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "successful operation",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version?firmwareVersionId=<long>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													],
+													"query": [
+														{
+															"key": "firmwareVersionId",
+															"value": "<long>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"id\": \"<long>\",\n \"equipmentType\": \"<string>\",\n \"modelId\": \"<string>\",\n \"versionName\": \"<string>\",\n \"description\": \"<string>\",\n \"filename\": \"<string>\",\n \"commit\": \"<string>\",\n \"validationMethod\": \"<string>\",\n \"validationCode\": \"<string>\",\n \"releaseDate\": \"<long>\",\n \"createdTimestamp\": \"<long>\",\n \"lastModifiedTimestamp\": \"<long>\"\n}"
+										},
+										{
+											"name": "this object is returned in the cases when an API throws an exception",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"description": {
+															"content": "Added as a part of security scheme: bearer",
+															"type": "text/plain"
+														},
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/portal/firmware/version?firmwareVersionId=<long>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"portal",
+														"firmware",
+														"version"
+													],
+													"query": [
+														{
+															"key": "firmwareVersionId",
+															"value": "<long>"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
+										}
+									]
+								}
+							]
 						}
 					]
 				}
