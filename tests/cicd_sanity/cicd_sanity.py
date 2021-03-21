@@ -2070,7 +2070,7 @@ for key in equipment_ids:
 
             # Update SSID Profile
             update_profile_id = str(fiveG_wpa)
-            update_ssid = key + "_Updated_SSID_NAT"
+            update_ssid = key + "_Updated_SSID_VLAN"
             update_auth = "open"
             update_security = "open"
             update_psk = ""
