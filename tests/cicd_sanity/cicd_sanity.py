@@ -763,6 +763,7 @@ for key in equipment_ids:
         print("Switching AP's to default profile")
         for id in equipment_id_dict.values():
             ap_profile = CloudSDK.set_ap_profile(id, 6, cloudSDK_url, bearer)
+        time.sleep(80)
         print('Profile change successful. Deleting profiles that cause potential conflicts...')
 
         # PROFILE CLEANUP BY NAME
@@ -770,7 +771,7 @@ for key in equipment_ids:
                               CloudSDK.get_profile_by_name(cloudSDK_url, bearer, customer_id, fw_model + '_5G_WPA_') + \
                               CloudSDK.get_profile_by_name(cloudSDK_url, bearer, customer_id, fw_model + '_2G_EAP_') + \
                               CloudSDK.get_profile_by_name(cloudSDK_url, bearer, customer_id, fw_model + '_2G_WPA_') + \
-                              CloudSDK.get_profile_by_name(cloudSDK_url, bearer, customer_id, 'Automation_RADIUS_') + \
+                              CloudSDK.get_profile_by_name(cloudSDK_url, bearer, customer_id, test_info.radius_profile_name) + \
                               CloudSDK.get_profile_by_name(cloudSDK_url, bearer, customer_id, "Nightly_Sanity_"
                                                            + fw_model + "_")
 
@@ -784,7 +785,7 @@ for key in equipment_ids:
         # Create RADIUS profile - used for all EAP SSIDs
         if args.skip_eap != True:
             radius_template = "templates/radius_profile_template.json"
-            radius_name = "Automation_RADIUS_"+today
+            radius_name = test_info.radius_profile_name + today
             server_ip = radius_info['server_ip']
             secret = radius_info['secret']
             auth_port = radius_info['auth_port']
@@ -846,9 +847,9 @@ for key in equipment_ids:
                     child_profiles.append(fiveG_eap)
                     # Add created profile to list for deletion at end of test
                     delete_list.append(fiveG_eap)
-                except:
+                except Exception as error:
                     fiveG_eap = "error"
-                    print("5G EAP SSID create failed - bridge mode")
+                    print("5G EAP SSID create failed - bridge mode with error:", error)
                     client.update_testrail(case_id=test_cases["ssid_5g_eap_bridge"], run_id=rid, status_id=5,
                                            msg='5G EAP SSID create failed - bridge mode')
                     report_data['tests'][key][test_cases["ssid_5g_eap_bridge"]] = "failed"
@@ -870,10 +871,10 @@ for key in equipment_ids:
                 # Add created profile to list for AP profile
                 child_profiles.append(fiveG_wpa2)
                 # Add created profile to list for deletion at end of test
-                delete_list.append(fiveG_wpa2)
-            except:
+
+            except Exception as error:
                 fiveG_wpa2 = "error"
-                print("5G WPA2 SSID create failed - bridge mode")
+                print("5G EAP SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa2_bridge"], run_id=rid, status_id=5,
                                        msg='5G WPA2 SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa2_bridge"]] = "failed"
@@ -893,9 +894,9 @@ for key in equipment_ids:
                 child_profiles.append(fiveG_wpa)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(fiveG_wpa)
-            except:
+            except Exception as error:
                 fiveG_wpa = "error"
-                print("5G WPA SSID create failed - bridge mode")
+                print("5G EAP SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa_bridge"], run_id=rid, status_id=5,
                                        msg='5G WPA SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa_bridge"]] = "failed"
@@ -917,9 +918,9 @@ for key in equipment_ids:
                     child_profiles.append(twoFourG_eap)
                     # Add created profile to list for deletion at end of test
                     delete_list.append(twoFourG_eap)
-                except:
+                except Exception as error:
                     twoFourG_eap = "error"
-                    print("2.4G EAP SSID create failed - bridge mode")
+                    print("5G EAP SSID create failed - bridge mode with error:", error)
                     client.update_testrail(case_id=test_cases["ssid_2g_eap_bridge"], run_id=rid, status_id=5,
                                            msg='2.4G EAP SSID create failed - bridge mode')
                     report_data['tests'][key][test_cases["ssid_2g_eap_bridge"]] = "failed"
@@ -941,9 +942,9 @@ for key in equipment_ids:
                 child_profiles.append(twoFourG_wpa2)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(twoFourG_wpa2)
-            except:
+            except Exception as error:
                 twoFourG_wpa2 = "error"
-                print("2.4G WPA2 SSID create failed - bridge mode")
+                print("5G EAP SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa2_bridge"], run_id=rid, status_id=5,
                                        msg='2.4G WPA2 SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa2_bridge"]] = "failed"
@@ -963,9 +964,9 @@ for key in equipment_ids:
                 child_profiles.append(twoFourG_wpa)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(twoFourG_wpa)
-            except:
-                twoFourG_wpa = "error"
-                print("2.4G WPA SSID create failed - bridge mode")
+            except Exception as error:
+                twoFourG_wpa2 = "error"
+                print("5G EAP SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa_bridge"], run_id=rid, status_id=5,
                                        msg='2.4G WPA SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa_bridge"]] = "failed"
@@ -1091,10 +1092,13 @@ for key in equipment_ids:
             # TC5214 - 2.4 GHz WPA2-Enterprise
             if args.skip_eap != True:
                 test_case = test_cases["2g_eap_bridge"]
-                radio = test_info.lanforge_2dot4g
+                if test_info.ap_spec[key] == 'wifi6':
+                    radio = test_info.lanforge_wifi6_radio
+                else:
+                    radio = test_info.lanforge_24g_radio
                 #sta_list = [lanforge_prefix + "5214"]
-                sta_list = [test_info.lanforge_2dot4g_station]
-                prefix = test_info.lanforge_2dot4g_prefix
+                sta_list = [test_info.lanforge_station]
+                prefix = test_info.lanforge_prefix
                 ssid_name = profile_info_dict[fw_model]["twoFourG_WPA2-EAP_SSID"]
                 security = "wpa2"
                 eap_type = "TTLS"
@@ -1114,10 +1118,13 @@ for key in equipment_ids:
             ###Run Client Single Connectivity Test Cases for Bridge SSIDs
             # TC - 2.4 GHz WPA2
             test_case = test_cases["2g_wpa2_bridge"]
-            radio = test_info.lanforge_2dot4g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_24g_radio
             #station = [lanforge_prefix + "2237"]
-            station = [test_info.lanforge_2dot4g_station]
-            prefix = test_info.lanforge_2dot4g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model]["twoFourG_WPA2_SSID"]
             ssid_psk = profile_info_dict[fw_model]["twoFourG_WPA2_PSK"]
             security = "wpa2"
@@ -1134,10 +1141,13 @@ for key in equipment_ids:
 
             # TC - 2.4 GHz WPA
             test_case = test_cases["2g_wpa_bridge"]
-            radio = test_info.lanforge_2dot4g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_24g_radio
             #station = [lanforge_prefix + "2420"]
-            station = [test_info.lanforge_2dot4g_station]
-            prefix = test_info.lanforge_2dot4g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model]["twoFourG_WPA_SSID"]
             ssid_psk = profile_info_dict[fw_model]["twoFourG_WPA_PSK"]
             security = "wpa"
@@ -1155,10 +1165,13 @@ for key in equipment_ids:
             # TC - 5 GHz WPA2-Enterprise
             if args.skip_eap != True:
                 test_case = test_cases["5g_eap_bridge"]
-                radio = test_info.lanforge_5g
+                if test_info.ap_spec[key] == 'wifi6':
+                    radio = test_info.lanforge_wifi6_radio
+                else:
+                    radio = test_info.lanforge_5g_radio
                 #sta_list = [lanforge_prefix + "5215"]
-                sta_list = [test_info.lanforge_5g_station]
-                prefix = test_info.lanforge_5g_prefix
+                sta_list = [test_info.lanforge_station]
+                prefix = test_info.lanforge_prefix
                 ssid_name = profile_info_dict[fw_model]["fiveG_WPA2-EAP_SSID"]
                 security = "wpa2"
                 eap_type = "TTLS"
@@ -1177,10 +1190,13 @@ for key in equipment_ids:
 
             # TC 5 GHz WPA2
             test_case = test_cases["5g_wpa2_bridge"]
-            radio = test_info.lanforge_5g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
             #station = [lanforge_prefix + "2236"]
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model]["fiveG_WPA2_SSID"]
             ssid_psk = profile_info_dict[fw_model]["fiveG_WPA2_PSK"]
             security = "wpa2"
@@ -1197,10 +1213,13 @@ for key in equipment_ids:
 
             # TC - 5 GHz WPA
             test_case = test_cases["5g_wpa_bridge"]
-            radio = test_info.lanforge_5g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
             #station = [lanforge_prefix + "2419"]
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model]["fiveG_WPA_SSID"]
             ssid_psk = profile_info_dict[fw_model]["fiveG_WPA_PSK"]
             security = "wpa"
@@ -1227,9 +1246,12 @@ for key in equipment_ids:
 
             # TC - Update Bridge SSID profile
             test_case = test_cases["bridge_ssid_update"]
-            radio = test_info.lanforge_5g
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             try:
                 test_result = Test.Single_Client_Connectivity(port, radio, prefix, update_ssid, update_psk,
                                                               update_security, station,
@@ -1277,9 +1299,9 @@ for key in equipment_ids:
                     # Add created profile to list for deletion at end of test
                     delete_list.append(fiveG_eap)
 
-                except:
+                except Exception as error:
                     fiveG_eap = "error"
-                    print("5G EAP SSID create failed - NAT mode")
+                    print("5G EAP SSID create failed - NAT mode with error:", error)
                     client.update_testrail(case_id=test_cases["ssid_5g_eap_nat"], run_id=rid, status_id=5,
                                            msg='5G EAP SSID create failed - NAT mode')
                     report_data['tests'][key][test_cases["ssid_5g_eap_nat"]] = "failed"
@@ -1301,9 +1323,9 @@ for key in equipment_ids:
                 child_profiles.append(fiveG_wpa2)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(fiveG_wpa2)
-            except:
+            except Exception as error:
                 fiveG_wpa2 = "error"
-                print("5G WPA2 SSID create failed - NAT mode")
+                print("5G WPA2 SSID create failed - NAT mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa2_nat"], run_id=rid, status_id=5,
                                        msg='5G WPA2 SSID create failed - NAT mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa2_nat"]] = "failed"
@@ -1323,9 +1345,9 @@ for key in equipment_ids:
                 child_profiles.append(fiveG_wpa)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(fiveG_wpa)
-            except:
+            except Exception as error:
                 fiveG_wpa = "error"
-                print("5G WPA SSID create failed - NAT mode")
+                print("5G WPA SSID create failed - NAT mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa_nat"], run_id=rid, status_id=5,
                                        msg='5G WPA SSID create failed - NAT mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa_nat"]] = "failed"
@@ -1347,9 +1369,9 @@ for key in equipment_ids:
                     child_profiles.append(twoFourG_eap)
                     # Add created profile to list for deletion at end of test
                     delete_list.append(twoFourG_eap)
-                except:
+                except Exception as error:
                     twoFourG_eap = "error"
-                    print("2.4G EAP SSID create failed - NAT mode")
+                    print("2.4G EAP SSID create failed - NAT mode with error:", error)
                     client.update_testrail(case_id=test_cases["ssid_2g_eap_nat"], run_id=rid, status_id=5,
                                            msg='2.4G EAP SSID create failed - NAT mode')
                     report_data['tests'][key][test_cases["ssid_2g_eap_nat"]] = "failed"
@@ -1371,9 +1393,9 @@ for key in equipment_ids:
                 child_profiles.append(twoFourG_wpa2)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(twoFourG_wpa2)
-            except:
+            except Exception as error:
                 twoFourG_wpa2 = "error"
-                print("2.4G WPA2 SSID create failed - NAT mode")
+                print("2.4G WPA2 SSID create failed - NAT mode wtih error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa2_nat"], run_id=rid, status_id=5,
                                        msg='2.4G WPA2 SSID create failed - NAT mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa2_nat"]] = "failed"
@@ -1392,9 +1414,9 @@ for key in equipment_ids:
                 child_profiles.append(twoFourG_wpa)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(twoFourG_wpa)
-            except:
+            except Exception as error:
                 twoFourG_wpa = "error"
-                print("2.4G WPA SSID create failed - NAT mode")
+                print("2.4G WPA SSID create failed - NAT mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa_nat"], run_id=rid, status_id=5,
                                        msg='2.4G WPA SSID create failed - NAT mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa_nat"]] = "failed"
@@ -1519,10 +1541,13 @@ for key in equipment_ids:
             # TC - 2.4 GHz WPA2-Enterprise NAT
             if args.skip_eap != True:
                 test_case = test_cases["2g_eap_nat"]
-                radio = test_info.lanforge_2dot4g
+                if test_info.ap_spec[key] == 'wifi6':
+                    radio = test_info.lanforge_wifi6_radio
+                else:
+                    radio = test_info.lanforge_24g_radio
                 #sta_list = [lanforge_prefix + "5216"]
-                sta_list = [test_info.lanforge_2dot4g_station]
-                prefix = test_info.lanforge_2dot4g_prefix
+                sta_list = [test_info.lanforge_station]
+                prefix = test_info.lanforge_prefix
                 ssid_name = profile_info_dict[fw_model + '_nat']["twoFourG_WPA2-EAP_SSID"]
                 security = "wpa2"
                 eap_type = "TTLS"
@@ -1541,10 +1566,13 @@ for key in equipment_ids:
 
             # TC - 2.4 GHz WPA2 NAT
             test_case = test_cases["2g_wpa2_nat"]
-            radio = test_info.lanforge_2dot4g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_24g_radio
             #station = [lanforge_prefix + "4325"]
-            station = [test_info.lanforge_2dot4g_station]
-            prefix = test_info.lanforge_2dot4g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_nat']["twoFourG_WPA2_SSID"]
             ssid_psk = profile_info_dict[fw_model + '_nat']["twoFourG_WPA2_PSK"]
             security = "wpa2"
@@ -1561,10 +1589,13 @@ for key in equipment_ids:
 
             # TC - 2.4 GHz WPA NAT
             test_case = test_cases["2g_wpa_nat"]
-            radio = test_info.lanforge_2dot4g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_24g_radio
             #station = [lanforge_prefix + "4323"]
-            station = [test_info.lanforge_2dot4g_station]
-            prefix = test_info.lanforge_2dot4g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_nat']["twoFourG_WPA_SSID"]
             ssid_psk = profile_info_dict[fw_model + '_nat']["twoFourG_WPA_PSK"]
             security = "wpa"
@@ -1581,10 +1612,13 @@ for key in equipment_ids:
             # TC - 5 GHz WPA2-Enterprise NAT
             if args.skip_eap != True:
                 test_case = test_cases["5g_eap_nat"]
-                radio = test_info.lanforge_5g
+                if test_info.ap_spec[key] == 'wifi6':
+                    radio = test_info.lanforge_wifi6_radio
+                else:
+                    radio = test_info.lanforge_5g_radio
                 #sta_list = [lanforge_prefix + "5217"]
-                sta_list = [test_info.lanforge_5g_station]
-                prefix = test_info.lanforge_5g_prefix
+                sta_list = [test_info.lanforge_station]
+                prefix = test_info.lanforge_prefix
                 ssid_name = profile_info_dict[fw_model + '_nat']["fiveG_WPA2-EAP_SSID"]
                 security = "wpa2"
                 eap_type = "TTLS"
@@ -1601,10 +1635,13 @@ for key in equipment_ids:
 
             # TC - 5 GHz WPA2 NAT
             test_case = test_cases["5g_wpa2_nat"]
-            radio = test_info.lanforge_5g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
             #station = [lanforge_prefix + "4326"]
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_nat']["fiveG_WPA2_SSID"]
             ssid_psk = profile_info_dict[fw_model]["fiveG_WPA2_PSK"]
             security = "wpa2"
@@ -1621,10 +1658,13 @@ for key in equipment_ids:
 
             # TC - 5 GHz WPA NAT
             test_case = test_cases["5g_wpa_nat"]
-            radio = test_info.lanforge_5g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
             #station = [lanforge_prefix + "4324"]
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_nat']["fiveG_WPA_SSID"]
             ssid_psk = profile_info_dict[fw_model]["fiveG_WPA_PSK"]
             security = "wpa"
@@ -1652,9 +1692,12 @@ for key in equipment_ids:
 
             # TC - Update NAT SSID profile
             test_case = test_cases["nat_ssid_update"]
-            radio = test_info.lanforge_5g
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             try:
                 test_result = Test.Single_Client_Connectivity(port, radio, prefix, update_ssid, update_psk,
                                                               update_security, station,
@@ -1702,9 +1745,9 @@ for key in equipment_ids:
                     # Add created profile to list for deletion at end of test
                     delete_list.append(fiveG_eap)
 
-                except:
+                except Exception as error:
                     fiveG_eap = "error"
-                    print("5G EAP SSID create failed - custom VLAN mode")
+                    print("5G EAP SSID create failed - custom VLAN mode with error:", error)
                     client.update_testrail(case_id=test_cases["ssid_5g_eap_vlan"], run_id=rid, status_id=5,
                                            msg='5G EAP SSID create failed - custom VLAN mode')
                     report_data['tests'][key][test_cases["ssid_5g_eap_vlan"]] = "failed"
@@ -1726,9 +1769,9 @@ for key in equipment_ids:
                 child_profiles.append(fiveG_wpa2)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(fiveG_wpa2)
-            except:
+            except Exception as error:
                 fiveG_wpa2 = "error"
-                print("5G WPA2 SSID create failed - custom VLAN mode")
+                print("5G WPA2 SSID create failed - custom VLAN mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa2_vlan"], run_id=rid, status_id=5,
                                        msg='5G WPA2 SSID create failed - custom VLAN mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa2_vlan"]] = "failed"
@@ -1748,9 +1791,9 @@ for key in equipment_ids:
                 child_profiles.append(fiveG_wpa)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(fiveG_wpa)
-            except:
+            except Exception as error:
                 fiveG_wpa = "error"
-                print("5G WPA SSID create failed - custom VLAN mode")
+                print("5G WPA SSID create failed - custom VLAN mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa_vlan"], run_id=rid, status_id=5,
                                        msg='5G WPA SSID create failed - custom VLAN mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa_vlan"]] = "failed"
@@ -1773,9 +1816,9 @@ for key in equipment_ids:
                     child_profiles.append(twoFourG_eap)
                     # Add created profile to list for deletion at end of test
                     delete_list.append(twoFourG_eap)
-                except:
+                except Exception as error:
                     twoFourG_eap = "error"
-                    print("2.4G EAP SSID create failed - custom VLAN mode")
+                    print("2.4G EAP SSID create failed - custom VLAN mode with error:", error)
                     client.update_testrail(case_id=test_cases["ssid_2g_eap_vlan"], run_id=rid, status_id=5,
                                            msg='2.4G EAP SSID create failed - custom VLAN mode')
                     report_data['tests'][key][test_cases["ssid_2g_eap_vlan"]] = "failed"
@@ -1798,9 +1841,9 @@ for key in equipment_ids:
                 child_profiles.append(twoFourG_wpa2)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(twoFourG_wpa2)
-            except:
+            except Exception as error:
                 twoFourG_wpa2 = "error"
-                print("2.4G WPA2 SSID create failed - custom VLAN mode")
+                print("2.4G WPA2 SSID create failed - custom VLAN mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa2_vlan"], run_id=rid, status_id=5,
                                        msg='2.4G WPA2 SSID create failed - custom VLAN mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa2_vlan"]] = "failed"
@@ -1820,9 +1863,9 @@ for key in equipment_ids:
                 child_profiles.append(twoFourG_wpa)
                 # Add created profile to list for deletion at end of test
                 delete_list.append(twoFourG_wpa)
-            except:
+            except Exception as error:
                 twoFourG_wpa = "error"
-                print("2.4G WPA SSID create failed - custom VLAN mode")
+                print("2.4G WPA SSID create failed - custom VLAN mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa_vlan"], run_id=rid, status_id=5,
                                        msg='2.4G WPA SSID create failed - custom VLAN mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa_vlan"]] = "failed"
@@ -1947,10 +1990,13 @@ for key in equipment_ids:
             # TC- 2.4 GHz WPA2-Enterprise VLAN
             if args.skip_eap != True:
                 test_case = test_cases["2g_eap_vlan"]
-                radio = test_info.lanforge_2dot4g
+                if test_info.ap_spec[key] == 'wifi6':
+                    radio = test_info.lanforge_wifi6_radio
+                else:
+                    radio = test_info.lanforge_24g_radio
                 #sta_list = [lanforge_prefix + "5253"]
-                sta_list = [test_info.lanforge_2dot4g_station]
-                prefix = test_info.lanforge_2dot4g_prefix
+                sta_list = [test_info.lanforge_station]
+                prefix = test_info.lanforge_prefix
                 ssid_name = profile_info_dict[fw_model + '_vlan']["twoFourG_WPA2-EAP_SSID"]
                 security = "wpa2"
                 eap_type = "TTLS"
@@ -1968,10 +2014,13 @@ for key in equipment_ids:
                 pass
             # TC - 2.4 GHz WPA2 VLAN
             test_case = test_cases["2g_wpa2_vlan"]
-            radio = test_info.lanforge_2dot4g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_24g_radio
             #station = [lanforge_prefix + "5251"]
-            station = [test_info.lanforge_2dot4g_station]
-            prefix = test_info.lanforge_2dot4g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_vlan']["twoFourG_WPA2_SSID"]
             ssid_psk = profile_info_dict[fw_model + '_vlan']["twoFourG_WPA2_PSK"]
             security = "wpa2"
@@ -1988,10 +2037,13 @@ for key in equipment_ids:
 
             # TC 4323 - 2.4 GHz WPA VLAN
             test_case = test_cases["2g_wpa_vlan"]
-            radio = test_info.lanforge_2dot4g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_24g_radio
             #station = [lanforge_prefix + "5252"]
-            station = [test_info.lanforge_2dot4g_station]
-            prefix = test_info.lanforge_2dot4g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_vlan']["twoFourG_WPA_SSID"]
             ssid_psk = profile_info_dict[fw_model + '_vlan']["twoFourG_WPA_PSK"]
             security = "wpa"
@@ -2008,10 +2060,13 @@ for key in equipment_ids:
             # TC - 5 GHz WPA2-Enterprise VLAN
             if args.skip_eap != True:
                 test_case = test_cases["5g_eap_vlan"]
-                radio = test_info.lanforge_5g
+                if test_info.ap_spec[key] == 'wifi6':
+                    radio = test_info.lanforge_wifi6_radio
+                else:
+                    radio = test_info.lanforge_5g_radio
                 #sta_list = [lanforge_prefix + "5250"]
-                sta_list = [test_info.lanforge_5g_station]
-                prefix = test_info.lanforge_5g_prefix
+                sta_list = [test_info.lanforge_station]
+                prefix = test_info.lanforge_prefix
                 ssid_name = profile_info_dict[fw_model + '_vlan']["fiveG_WPA2-EAP_SSID"]
                 security = "wpa2"
                 eap_type = "TTLS"
@@ -2030,10 +2085,13 @@ for key in equipment_ids:
 
             # TC - 5 GHz WPA2 VLAN
             test_case = test_cases["5g_wpa2_vlan"]
-            radio = test_info.lanforge_5g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
             #station = [lanforge_prefix + "5248"]
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_vlan']["fiveG_WPA2_SSID"]
             ssid_psk = profile_info_dict[fw_model]["fiveG_WPA2_PSK"]
             security = "wpa2"
@@ -2050,10 +2108,13 @@ for key in equipment_ids:
 
             # TC 4324 - 5 GHz WPA VLAN
             test_case = test_cases["5g_wpa_vlan"]
-            radio = test_info.lanforge_5g
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
             #station = [lanforge_prefix + "5249"]
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model + '_vlan']["fiveG_WPA_SSID"]
             ssid_psk = profile_info_dict[fw_model]["fiveG_WPA_PSK"]
             security = "wpa"
@@ -2077,13 +2138,16 @@ for key in equipment_ids:
             update_profile = CloudSDK.update_ssid_profile(cloudSDK_url, bearer, update_profile_id, update_ssid,
                                                           update_auth, update_psk)
             print(update_profile)
-            time.sleep(90)
+            time.sleep(120)
 
             # TC - Updated VLAN SSID profile
             test_case = test_cases["vlan_ssid_update"]
-            radio = test_info.lanforge_5g
-            station = [test_info.lanforge_5g_station]
-            prefix = test_info.lanforge_5g_prefix
+            if test_info.ap_spec[key] == 'wifi6':
+                radio = test_info.lanforge_wifi6_radio
+            else:
+                radio = test_info.lanforge_5g_radio
+            station = [test_info.lanforge_station]
+            prefix = test_info.lanforge_prefix
             try:
                 test_result = Test.Single_Client_Connectivity(port, radio, prefix, update_ssid, update_psk,
                                                               update_security, station,

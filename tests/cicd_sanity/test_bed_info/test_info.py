@@ -28,13 +28,12 @@ deletion_file = 'templates/delete_profile_list.json'
 
 ##LANForge Info
 lanforge_ip = "10.10.10.201"
-lanforge_2dot4g = "wiphy2"
-lanforge_5g = "wiphy3"
+lanforge_24g_radio = "wiphy0"
+lanforge_5g_radio = "wiphy1"
+lanforge_wifi6_radio = 'wiphy5'
 # For single client connectivity use cases, use full station name for prefix to only read traffic from client under test
-lanforge_2dot4g_prefix = "test"
-lanforge_5g_prefix = "test"
-lanforge_2dot4g_station = "test1235"
-lanforge_5g_station = "test1235"
+lanforge_prefix = "test5"
+lanforge_station = "test5"
 lanforge_bridge_port = "eth2"
 # VLAN interface on LANForge - must be configured to use alias of "vlan###" to accommodate sta_connect2 library
 lanforge_vlan_port = "vlan100"
@@ -62,10 +61,12 @@ radius_info = {
     "eap_pwd": "admin123"
 }
 
+
 ## Other profiles
 radius_profile = 9  # used as backup
 rf_profile_wifi5 = 10
 rf_profile_wifi6 = 762
+radius_profile_name = 'Automation_radius_wifi5'
 
 ##AP Models for firmware upload
 cloud_sdk_models = {
@@ -357,4 +358,396 @@ profile_info_dict = {
             "EA8300_2dot4G_WPA2-EAP"
         ]
     },
+    "ea8300_nat": {
+        "fiveG_WPA2_SSID": "EA8300_5G_WPA2_NAT",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EA8300_5G_WPA_NAT",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EA8300_5G_OPEN_NAT",
+        "fiveG_WPA2-EAP_SSID": "EA8300_5G_WPA2-EAP_NAT",
+        "twoFourG_OPEN_SSID": "EA8300_2dot4G_OPEN_NAT",
+        "twoFourG_WPA2_SSID": "EA8300_2dot4G_WPA2_NAT",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EA8300_2dot4G_WPA_NAT",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EA8300_2dot4G_WPA2-EAP_NAT",
+        "ssid_list": [
+            "EA8300_5G_WPA2_NAT",
+            "EA8300_5G_WPA2_NAT",
+            "EA8300_5G_WPA_NAT",
+            "EA8300_5G_WPA_NAT",
+            "EA8300_5G_WPA2-EAP_NAT",
+            "EA8300_5G_WPA2-EAP_NAT",
+            "EA8300_2dot4G_WPA2_NAT",
+            "EA8300_2dot4G_WPA_NAT",
+            "EA8300_2dot4G_WPA2-EAP_NAT"
+        ]
+    },
+
+    "ea8300_vlan": {
+        "fiveG_WPA2_SSID": "EA8300_5G_WPA2_VLAN",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EA8300_5G_WPA_VLAN",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EA8300_5G_OPEN_VLAN",
+        "fiveG_WPA2-EAP_SSID": "EA8300_5G_WPA2-EAP_VLAN",
+        "twoFourG_OPEN_SSID": "EA8300_2dot4G_OPEN_VLAN",
+        "twoFourG_WPA2_SSID": "EA8300_2dot4G_WPA2_VLAN",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EA8300_2dot4G_WPA_VLAN",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EA8300_2dot4G_WPA2-EAP_VLAN",
+        "ssid_list": [
+            "EA8300_5G_WPA2_VLAN",
+            "EA8300_5G_WPA2_VLAN",
+            "EA8300_5G_WPA_VLAN",
+            "EA8300_5G_WPA_VLAN",
+            "EA8300_5G_WPA2-EAP_VLAN",
+            "EA8300_5G_WPA2-EAP_VLAN",
+            "EA8300_2dot4G_WPA2_VLAN",
+            "EA8300_2dot4G_WPA_VLAN",
+            "EA8300_2dot4G_WPA2-EAP_VLAN"
+        ]
+    },
+    "ec420": {
+        "fiveG_WPA2_SSID": "EC420_5G_WPA2",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EC420_5G_WPA",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EC420_5G_OPEN",
+        "fiveG_WPA2-EAP_SSID": "EC420_5G_WPA2-EAP",
+        "twoFourG_OPEN_SSID": "EC420_2dot4G_OPEN",
+        "twoFourG_WPA2_SSID": "EC420_2dot4G_WPA2",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EC420_2dot4G_WPA",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EC420_2dot4G_WPA2-EAP",
+        "ssid_list": [
+            "EC420_5G_WPA2",
+            "EC420_5G_WPA",
+            "EC420_5G_WPA2-EAP",
+            "EC420_2dot4G_WPA2",
+            "EC420_2dot4G_WPA",
+            "EC420_2dot4G_WPA2-EAP"
+        ]
+    },
+
+    "ec420_nat": {
+        "fiveG_WPA2_SSID": "EC420_5G_WPA2_NAT",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EC420_5G_WPA_NAT",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EC420_5G_OPEN_NAT",
+        "fiveG_WPA2-EAP_SSID": "EC420_5G_WPA2-EAP_NAT",
+        "twoFourG_OPEN_SSID": "EC420_2dot4G_OPEN_NAT",
+        "twoFourG_WPA2_SSID": "EC420_2dot4G_WPA2_NAT",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EC420_2dot4G_WPA_NAT",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EC420_2dot4G_WPA2-EAP_NAT",
+        "ssid_list": [
+            "EC420_5G_WPA2_NAT",
+            "EC420_5G_WPA_NAT",
+            "EC420_5G_WPA2-EAP_NAT",
+            "EC420_2dot4G_WPA2_NAT",
+            "EC420_2dot4G_WPA_NAT",
+            "EC420_2dot4G_WPA2-EAP_NAT"
+        ]
+    },
+
+    "ec420_vlan": {
+        "fiveG_WPA2_SSID": "EC420_5G_WPA2_VLAN",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EC420_5G_WPA_VLAN",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EC420_5G_OPEN_VLAN",
+        "fiveG_WPA2-EAP_SSID": "EC420_5G_WPA2-EAP_VLAN",
+        "twoFourG_OPEN_SSID": "EC420_2dot4G_OPEN_VLAN",
+        "twoFourG_WPA2_SSID": "EC420_2dot4G_WPA2_VLAN",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EC420_2dot4G_WPA_VLAN",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EC420_2dot4G_WPA2-EAP_VLAN",
+        "ssid_list": [
+            "EC420_5G_WPA2_VLAN",
+            "EC420_5G_WPA_VLAN",
+            "EC420_5G_WPA2-EAP_VLAN",
+            "EC420_2dot4G_WPA2_VLAN",
+            "EC420_2dot4G_WPA_VLAN",
+            "EC420_2dot4G_WPA2-EAP_VLAN"
+        ]
+    },
+    "eap101": {
+        "fiveG_WPA2_SSID": "EAP101_5G_WPA2",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EAP101_5G_WPA",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EAP101_5G_OPEN",
+        "fiveG_WPA2-EAP_SSID": "EAP101_5G_WPA2-EAP",
+        "twoFourG_OPEN_SSID": "EAP101_2dot4G_OPEN",
+        "twoFourG_WPA2_SSID": "EAP101_2dot4G_WPA2",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EAP101_2dot4G_WPA",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EAP101_2dot4G_WPA2-EAP",
+        "ssid_list": [
+            "EAP101_5G_WPA2",
+            "EAP101_5G_WPA",
+            "EAP101_5G_WPA2-EAP",
+            "EAP101_2dot4G_WPA2",
+            "EAP101_2dot4G_WPA",
+            "EAP101_2dot4G_WPA2-EAP"
+        ]
+    },
+
+    "eap101_nat": {
+        "fiveG_WPA2_SSID": "EAP101_5G_WPA2_NAT",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EAP101_5G_WPA_NAT",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EAP101_5G_OPEN_NAT",
+        "fiveG_WPA2-EAP_SSID": "EAP101_5G_WPA2-EAP_NAT",
+        "twoFourG_OPEN_SSID": "EAP101_2dot4G_OPEN_NAT",
+        "twoFourG_WPA2_SSID": "EAP101_2dot4G_WPA2_NAT",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EAP101_2dot4G_WPA_NAT",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EAP101_2dot4G_WPA2-EAP_NAT",
+        "ssid_list": [
+            "EAP101_5G_WPA2_NAT",
+            "EAP101_5G_WPA_NAT",
+            "EAP101_5G_WPA2-EAP_NAT",
+            "EAP101_2dot4G_WPA2_NAT",
+            "EAP101_2dot4G_WPA_NAT",
+            "EAP101_2dot4G_WPA2-EAP_NAT"
+        ]
+    },
+
+    "eap101_vlan": {
+        "fiveG_WPA2_SSID": "EAP101_5G_WPA2_VLAN",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EAP101_5G_WPA_VLAN",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EAP101_5G_OPEN_VLAN",
+        "fiveG_WPA2-EAP_SSID": "EAP101_5G_WPA2-EAP_VLAN",
+        "twoFourG_OPEN_SSID": "EAP101_2dot4G_OPEN_VLAN",
+        "twoFourG_WPA2_SSID": "EAP101_2dot4G_WPA2_VLAN",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EAP101_2dot4G_WPA_VLAN",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EAP101_2dot4G_WPA2-EAP_VLAN",
+        "ssid_list": [
+            "EAP101_5G_WPA2_VLAN",
+            "EAP101_5G_WPA_VLAN",
+            "EAP101_5G_WPA2-EAP_VLAN",
+            "EAP101_2dot4G_WPA2_VLAN",
+            "EAP101_2dot4G_WPA_VLAN",
+            "EAP101_2dot4G_WPA2-EAP_VLAN"
+        ]
+    },
+    "wf194c": {
+        "fiveG_WPA2_SSID": "WF194C_5G_WPA2",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "WF194C_5G_WPA",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "WF194C_5G_OPEN",
+        "fiveG_WPA2-EAP_SSID": "WF194C_5G_WPA2-EAP",
+        "twoFourG_OPEN_SSID": "WF194C_2dot4G_OPEN",
+        "twoFourG_WPA2_SSID": "WF194C_2dot4G_WPA2",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "WF194C_2dot4G_WPA",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "WF194C_2dot4G_WPA2-EAP",
+        "ssid_list": [
+            "WF194C_5G_WPA2",
+            "WF194C_5G_WPA",
+            "WF194C_5G_WPA2-EAP",
+            "WF194C_2dot4G_WPA2",
+            "WF194C_2dot4G_WPA",
+            "WF194C_2dot4G_WPA2-EAP"
+        ]
+    },
+
+    "wf194c_nat": {
+        "fiveG_WPA2_SSID": "WF194C_5G_WPA2_NAT",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "WF194C_5G_WPA_NAT",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "WF194C_5G_OPEN_NAT",
+        "fiveG_WPA2-EAP_SSID": "WF194C_5G_WPA2-EAP_NAT",
+        "twoFourG_OPEN_SSID": "WF194C_2dot4G_OPEN_NAT",
+        "twoFourG_WPA2_SSID": "WF194C_2dot4G_WPA2_NAT",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "WF194C_2dot4G_WPA_NAT",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "WF194C_2dot4G_WPA2-EAP_NAT",
+        "ssid_list": [
+            "WF194C_5G_WPA2_NAT",
+            "WF194C_5G_WPA_NAT",
+            "WF194C_5G_WPA2-EAP_NAT",
+            "WF194C_2dot4G_WPA2_NAT",
+            "WF194C_2dot4G_WPA_NAT",
+            "WF194C_2dot4G_WPA2-EAP_NAT"
+        ]
+    },
+
+    "wf194c_vlan": {
+        "fiveG_WPA2_SSID": "WF194C_5G_WPA2_VLAN",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "WF194C_5G_WPA_VLAN",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "WF194C_5G_OPEN_VLAN",
+        "fiveG_WPA2-EAP_SSID": "WF194C_5G_WPA2-EAP_VLAN",
+        "twoFourG_OPEN_SSID": "WF194C_2dot4G_OPEN_VLAN",
+        "twoFourG_WPA2_SSID": "WF194C_2dot4G_WPA2_VLAN",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "WF194C_2dot4G_WPA_VLAN",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "WF194C_2dot4G_WPA2-EAP_VLAN",
+        "ssid_list": [
+            "WF194C_5G_WPA2_VLAN",
+            "WF194C_5G_WPA_VLAN",
+            "WF194C_5G_WPA2-EAP_VLAN",
+            "WF194C_2dot4G_WPA2_VLAN",
+            "WF194C_2dot4G_WPA_VLAN",
+            "WF194C_2dot4G_WPA2-EAP_VLAN"
+        ]
+    },
+    "eap102": {
+        "fiveG_WPA2_SSID": "EAP102_5G_WPA2",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EAP102_5G_WPA",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EAP102_5G_OPEN",
+        "fiveG_WPA2-EAP_SSID": "EAP102_5G_WPA2-EAP",
+        "twoFourG_OPEN_SSID": "EAP102_2dot4G_OPEN",
+        "twoFourG_WPA2_SSID": "EAP102_2dot4G_WPA2",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EAP102_2dot4G_WPA",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EAP102_2dot4G_WPA2-EAP",
+        "ssid_list": [
+            "EAP102_5G_WPA2",
+            "EAP102_5G_WPA",
+            "EAP102_5G_WPA2-EAP",
+            "EAP102_2dot4G_WPA2",
+            "EAP102_2dot4G_WPA",
+            "EAP102_2dot4G_WPA2-EAP"
+        ]
+    },
+
+    "eap102_nat": {
+        "fiveG_WPA2_SSID": "EAP102_5G_WPA2_NAT",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EAP102_5G_WPA_NAT",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EAP102_5G_OPEN_NAT",
+        "fiveG_WPA2-EAP_SSID": "EAP102_5G_WPA2-EAP_NAT",
+        "twoFourG_OPEN_SSID": "EAP102_2dot4G_OPEN_NAT",
+        "twoFourG_WPA2_SSID": "EAP102_2dot4G_WPA2_NAT",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EAP102_2dot4G_WPA_NAT",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EAP102_2dot4G_WPA2-EAP_NAT",
+        "ssid_list": [
+            "EAP102_5G_WPA2_NAT",
+            "EAP102_5G_WPA_NAT",
+            "EAP102_5G_WPA2-EAP_NAT",
+            "EAP102_2dot4G_WPA2_NAT",
+            "EAP102_2dot4G_WPA_NAT",
+            "EAP102_2dot4G_WPA2-EAP_NAT"
+        ]
+    },
+
+    "eap102_vlan": {
+        "fiveG_WPA2_SSID": "EAP102_5G_WPA2_VLAN",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "EAP102_5G_WPA_VLAN",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "EAP102_5G_OPEN_VLAN",
+        "fiveG_WPA2-EAP_SSID": "EAP102_5G_WPA2-EAP_VLAN",
+        "twoFourG_OPEN_SSID": "EAP102_2dot4G_OPEN_VLAN",
+        "twoFourG_WPA2_SSID": "EAP102_2dot4G_WPA2_VLAN",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "EAP102_2dot4G_WPA_VLAN",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "EAP102_2dot4G_WPA2-EAP_VLAN",
+        "ssid_list": [
+            "EAP102_5G_WPA2_VLAN",
+            "EAP102_5G_WPA_VLAN",
+            "EAP102_5G_WPA2-EAP_VLAN",
+            "EAP102_2dot4G_WPA2_VLAN",
+            "EAP102_2dot4G_WPA_VLAN",
+            "EAP102_2dot4G_WPA2-EAP_VLAN"
+        ]
+    },
+    "wf188n": {
+        "fiveG_WPA2_SSID": "WF188N_5G_WPA2",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "WF188N_5G_WPA",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "WF188N_5G_OPEN",
+        "fiveG_WPA2-EAP_SSID": "WF188N_5G_WPA2-EAP",
+        "twoFourG_OPEN_SSID": "WF188N_2dot4G_OPEN",
+        "twoFourG_WPA2_SSID": "WF188N_2dot4G_WPA2",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "WF188N_2dot4G_WPA",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "WF188N_2dot4G_WPA2-EAP",
+        "ssid_list": [
+            "WF188N_5G_WPA2",
+            "WF188N_5G_WPA",
+            "WF188N_5G_WPA2-EAP",
+            "WF188N_2dot4G_WPA2",
+            "WF188N_2dot4G_WPA",
+            "WF188N_2dot4G_WPA2-EAP"
+        ]
+    },
+
+    "wf188n_nat": {
+        "fiveG_WPA2_SSID": "WF188N_5G_WPA2_NAT",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "WF188N_5G_WPA_NAT",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "WF188N_5G_OPEN_NAT",
+        "fiveG_WPA2-EAP_SSID": "WF188N_5G_WPA2-EAP_NAT",
+        "twoFourG_OPEN_SSID": "WF188N_2dot4G_OPEN_NAT",
+        "twoFourG_WPA2_SSID": "WF188N_2dot4G_WPA2_NAT",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "WF188N_2dot4G_WPA_NAT",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "WF188N_2dot4G_WPA2-EAP_NAT",
+        "ssid_list": [
+            "WF188N_5G_WPA2_NAT",
+            "WF188N_5G_WPA_NAT",
+            "WF188N_5G_WPA2-EAP_NAT",
+            "WF188N_2dot4G_WPA2_NAT",
+            "WF188N_2dot4G_WPA_NAT",
+            "WF188N_2dot4G_WPA2-EAP_NAT"
+        ]
+    },
+
+    "wf188n_vlan": {
+        "fiveG_WPA2_SSID": "WF188N_5G_WPA2_VLAN",
+        "fiveG_WPA2_PSK": "Connectus123$",
+        "fiveG_WPA_SSID": "WF188N_5G_WPA_VLAN",
+        "fiveG_WPA_PSK": "Connectus123$",
+        "fiveG_OPEN_SSID": "WF188N_5G_OPEN_VLAN",
+        "fiveG_WPA2-EAP_SSID": "WF188N_5G_WPA2-EAP_VLAN",
+        "twoFourG_OPEN_SSID": "WF188N_2dot4G_OPEN_VLAN",
+        "twoFourG_WPA2_SSID": "WF188N_2dot4G_WPA2_VLAN",
+        "twoFourG_WPA2_PSK": "Connectus123$",
+        "twoFourG_WPA_SSID": "WF188N_2dot4G_WPA_VLAN",
+        "twoFourG_WPA_PSK": "Connectus123$",
+        "twoFourG_WPA2-EAP_SSID": "WF188N_2dot4G_WPA2-EAP_VLAN",
+        "ssid_list": [
+            "WF188N_5G_WPA2_VLAN",
+            "WF188N_5G_WPA_VLAN",
+            "WF188N_5G_WPA2-EAP_VLAN",
+            "WF188N_2dot4G_WPA2_VLAN",
+            "WF188N_2dot4G_WPA_VLAN",
+            "WF188N_2dot4G_WPA2-EAP_VLAN"
+        ]
+    }
+
 }
