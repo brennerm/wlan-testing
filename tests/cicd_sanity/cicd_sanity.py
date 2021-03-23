@@ -874,7 +874,7 @@ for key in equipment_ids:
                 delete_list.append(fiveG_wpa2)
             except Exception as error:
                 fiveG_wpa2 = "error"
-                print("5G EAP SSID create failed - bridge mode with error:", error)
+                print("5G WPA2 SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa2_bridge"], run_id=rid, status_id=5,
                                        msg='5G WPA2 SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa2_bridge"]] = "failed"
@@ -896,7 +896,7 @@ for key in equipment_ids:
                 delete_list.append(fiveG_wpa)
             except Exception as error:
                 fiveG_wpa = "error"
-                print("5G EAP SSID create failed - bridge mode with error:", error)
+                print("5G WPA SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_5g_wpa_bridge"], run_id=rid, status_id=5,
                                        msg='5G WPA SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_5g_wpa_bridge"]] = "failed"
@@ -920,7 +920,7 @@ for key in equipment_ids:
                     delete_list.append(twoFourG_eap)
                 except Exception as error:
                     twoFourG_eap = "error"
-                    print("5G EAP SSID create failed - bridge mode with error:", error)
+                    print("2.4G EAP SSID create failed - bridge mode with error:", error)
                     client.update_testrail(case_id=test_cases["ssid_2g_eap_bridge"], run_id=rid, status_id=5,
                                            msg='2.4G EAP SSID create failed - bridge mode')
                     report_data['tests'][key][test_cases["ssid_2g_eap_bridge"]] = "failed"
@@ -944,7 +944,7 @@ for key in equipment_ids:
                 delete_list.append(twoFourG_wpa2)
             except Exception as error:
                 twoFourG_wpa2 = "error"
-                print("5G EAP SSID create failed - bridge mode with error:", error)
+                print("2.4G WPA2 SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa2_bridge"], run_id=rid, status_id=5,
                                        msg='2.4G WPA2 SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa2_bridge"]] = "failed"
@@ -965,8 +965,8 @@ for key in equipment_ids:
                 # Add created profile to list for deletion at end of test
                 delete_list.append(twoFourG_wpa)
             except Exception as error:
-                twoFourG_wpa2 = "error"
-                print("5G EAP SSID create failed - bridge mode with error:", error)
+                twoFourG_wpa = "error"
+                print("2.4G WPA EA SSID create failed - bridge mode with error:", error)
                 client.update_testrail(case_id=test_cases["ssid_2g_wpa_bridge"], run_id=rid, status_id=5,
                                        msg='2.4G WPA SSID create failed - bridge mode')
                 report_data['tests'][key][test_cases["ssid_2g_wpa_bridge"]] = "failed"
