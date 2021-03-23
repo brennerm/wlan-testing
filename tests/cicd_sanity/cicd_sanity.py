@@ -871,7 +871,7 @@ for key in equipment_ids:
                 # Add created profile to list for AP profile
                 child_profiles.append(fiveG_wpa2)
                 # Add created profile to list for deletion at end of test
-
+                delete_list.append(fiveG_wpa2)
             except Exception as error:
                 fiveG_wpa2 = "error"
                 print("5G EAP SSID create failed - bridge mode with error:", error)
