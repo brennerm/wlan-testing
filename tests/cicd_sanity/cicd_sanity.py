@@ -207,8 +207,8 @@ parser.add_argument("--skip_nat", dest="skip_nat", action='store_true', help="Sk
 parser.set_defaults(skip_nat=False)
 parser.add_argument("--skip_vlan", dest="skip_vlan", action='store_true', help="Skip VLAN testing")
 parser.set_defaults(skip_vlan=False)
-parser.add_argument('--trunk_image', dest="trunk_image", action='store_true', help='Use trunk directory instead of dev')
-parser.set_defaults(trunk_image=False)
+parser.add_argument('--trunk', dest="trunk", action='store_true', help='Use trunk directory instead of dev')
+parser.set_defaults(trunk=False)
 args = parser.parse_args()
 
 
@@ -216,7 +216,7 @@ build = args.build
 ignore = args.ignore
 # report_path = args.report
 test_file = args.file
-trunk_image = args.trunk_image
+trunk_image = args.trunk
 
 # Import info for lab setup and APs under test
 file = os.path.splitext(test_file)[0]
@@ -384,15 +384,18 @@ for model in ap_models:
     # print(cloudModel)
     ###Check Latest FW on jFrog
     jfrog_url = 'https://tip.jfrog.io/artifactory/tip-wlan-ap-firmware/'
+    Build: GetBuild = GetBuild()
     if trunk_image:
         print('Using trunk image!')
         url = jfrog_url + apModel + "/trunk/"
+        latest_image = Build.get_latest_image(url, '.tar.gz')
+        print(model, "Latest FW on jFrog:", latest_image)
+        ap_latest_dict[model] = latest_image
     else:
         url = jfrog_url + apModel + "/dev/"
-    Build: GetBuild = GetBuild()
-    latest_image = Build.get_latest_image(url, build)
-    print(model, "Latest FW on jFrog:", latest_image)
-    ap_latest_dict[model] = latest_image
+        latest_image = Build.get_latest_image(url, build)
+        print(model, "Latest FW on jFrog:", latest_image)
+        ap_latest_dict[model] = latest_image
 
 print(ap_latest_dict)
 ####################################################################################
@@ -504,10 +507,13 @@ for key in equipment_ids:
         else:
             pass
 
-        test_run_name = testRunPrefix + fw_model + "_" + today + "_" + latest_ap_image
+        if trunk_image:
+            test_run_name = testRunPrefix + fw_model + "_" + today + "_" + latest_ap_image + '-trunk'
+        else:
+            test_run_name = testRunPrefix + fw_model + "_" + today + "_" + latest_ap_image
         client.create_testrun(name=test_run_name, case_ids=case_ids, project_id=projId, milestone_id=milestoneId,
                               description="Automated Nightly Sanity test run for new firmware build")
-        rid = client.get_run_id(test_run_name=testRunPrefix + fw_model + "_" + today + "_" + latest_ap_image)
+        rid = client.get_run_id(test_run_name=test_run_name)
         print("TIP run ID is:", rid)
 
         ###GetCloudSDK Version

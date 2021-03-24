@@ -199,10 +199,17 @@ class CloudSDK:
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + bearer
         }
+
+        with open(template) as post_data:
+            post = json.load(post_data)
+        print('------This is SSID POST data-----\n', post)
+
         response = requests.request("POST", url, headers=headers, data=open(template, 'rb'))
-        ssid_profile = response.json()
-        print(ssid_profile)
-        ssid_profile_id = ssid_profile['id']
+        ssid_profile_response = response.json()
+        print('------This is SSID response data-----\n', ssid_profile_response)
+
+
+        ssid_profile_id = ssid_profile_response['id']
         return ssid_profile_id
 
     def create_radius_profile(cloudSDK_url, bearer, template, name, customer_id, server_ip, secret, auth_port):
