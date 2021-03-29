@@ -43,13 +43,14 @@ MODE_AUTO=0
 class EAPConnect(LFCliBase):
     def __init__(self, host, port, security=None, ssid=None, sta_list=None, number_template="00000", _debug_on=False, _dut_bssid="",
                  _exit_on_error=False, _sta_name=None, _resource=1, radio="wiphy0", key_mgmt="WPA-EAP", eap="", identity="",
-                 ttls_passwd="", hessid=None, ttls_realm="", domain="", _sta_prefix='eap', _exit_on_fail=False, _cleanup_on_exit=True):
+                 ttls_passwd="", hessid=None, ttls_realm="", domain="", ieee80211w=0, _sta_prefix='eap', _exit_on_fail=False, _cleanup_on_exit=True):
         super().__init__(host, port, _debug=_debug_on, _halt_on_error=_exit_on_error, _exit_on_fail=_exit_on_fail)
         self.host = host
         self.port = port
         self.ssid = ssid
         self.radio = radio
         self.security = security
+        self.ieee80211w = ieee80211w
         #self.password = password
         self.sta_list = sta_list
         self.key_mgmt = key_mgmt
@@ -179,6 +180,7 @@ class EAPConnect(LFCliBase):
                                             passwd=self.ttls_passwd,
                                             realm=self.ttls_realm, domain=self.domain,
                                             hessid=self.hessid)
+        self.station_profile.set_command_param("add_sta", "ieee80211w", self.ieee80211w)
         self.station_profile.create(radio=self.radio, sta_names_=self.sta_list, debug=self.debug, use_radius=True, hs20_enable=False)
         self._pass("PASS: Station build finished")
 
