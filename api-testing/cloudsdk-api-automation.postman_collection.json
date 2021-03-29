@@ -5470,6 +5470,272 @@
 									"body": "{\n \"items\": [\n  {\n   \"profileType\": \"equipment_ap\",\n   \"customerId\": 2,\n   \"name\": \"example AP profile\"\n  },\n  {\n   \"profileType\": \"equipment_ap\",\n   \"customerId\": 2,\n   \"name\": \"example AP profile\"\n  }\n ],\n \"context\": {\n  \"model_type\": \"PaginationContext\",\n  \"maxItemsPerPage\": 10\n }\n}"
 								}
 							]
+						},
+						{
+							"name": "Attempt to create profile with blank name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8995 Status code is 500\", function () {",
+											"    pm.response.to.have.status(500);",
+											"});",
+											"",
+											"pm.test(\"C8995 Error reason is unsupported value \", function () {",
+											"    var responseJson = pm.response.json();",
+											"    pm.expect(responseJson.error).to.eql('Profile contains unsupported value');",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model_type\": \"Profile\",\n    \"id\": 4,\n    \"customerId\": 2,\n    \"profileType\": \"ssid\",\n    \"name\": \"\",\n    \"details\": {\n        \"model_type\": \"SsidConfiguration\",\n        \"ssid\": \"API_Automation\",\n        \"appliedRadios\": [\n            \"is5GHzU\",\n            \"is2dot4GHz\",\n            \"is5GHzL\",\n            \"is5GHz\"\n        ],\n        \"ssidAdminState\": \"enabled\",\n        \"secureMode\": \"wpa2OnlyPSK\",\n        \"vlanId\": 1,\n        \"dynamicVlan\": \"disabled\",\n        \"keyStr\": \"w1r3l3ss-fr33d0m\",\n        \"broadcastSsid\": \"enabled\",\n        \"keyRefresh\": 0,\n        \"noLocalSubnets\": false,\n        \"radiusServiceId\": 0,\n        \"radiusAcountingServiceInterval\": 60,\n        \"captivePortalId\": null,\n        \"bandwidthLimitDown\": 0,\n        \"bandwidthLimitUp\": 0,\n        \"clientBandwidthLimitDown\": 0,\n        \"clientBandwidthLimitUp\": 0,\n        \"videoTrafficOnly\": false,\n        \"radioBasedConfigs\": {\n            \"is2dot4GHz\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            },\n            \"is5GHz\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            },\n            \"is5GHzU\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            },\n            \"is5GHzL\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            }\n        },\n        \"bonjourGatewayProfileId\": null,\n        \"enable80211w\": null,\n        \"wepConfig\": null,\n        \"forwardMode\": \"NAT\",\n        \"profileType\": \"ssid\",\n        \"radiusClientConfiguration\": {\n            \"model_type\": \"RadiusNasConfiguration\",\n            \"nasClientId\": \"DEFAULT\",\n            \"nasClientIp\": \"WAN_IP\",\n            \"userDefinedNasId\": null,\n            \"userDefinedNasIp\": null,\n            \"operatorId\": null\n        }\n    },\n    \"createdTimestamp\": 0,\n    \"lastModifiedTimestamp\": 0,\n    \"childProfileIds\": []\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/portal/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"profile"
+									]
+								},
+								"description": "System should reject profile with no name"
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"amet voluptate\",\n \"path\": \"ullamco in nulla\",\n \"timestamp\": 13987051\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"profileType\": \"equipment_ap\",\n \"customerId\": 2,\n \"name\": \"example AP profile\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Attempt to Create SSID Profile with invalid security type",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C8996 Status code is 500\", function () {",
+											"    pm.response.to.have.status(500);",
+											"});",
+											"",
+											"pm.test(\"C8996 Error reason is unsupported value \", function () {",
+											"    var responseJson = pm.response.json();",
+											"    pm.expect(responseJson.error).to.eql('Profile contains unsupported value');",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"model_type\": \"Profile\",\n    \"id\": 4,\n    \"customerId\": 2,\n    \"profileType\": \"ssid\",\n    \"name\": \"API Automation - Invalid Security Mode\",\n    \"details\": {\n        \"model_type\": \"SsidConfiguration\",\n        \"ssid\": \"API_Automation\",\n        \"appliedRadios\": [\n            \"is5GHzU\",\n            \"is2dot4GHz\",\n            \"is5GHzL\",\n            \"is5GHz\"\n        ],\n        \"ssidAdminState\": \"enabled\",\n        \"secureMode\": \"invalidValue\",\n        \"vlanId\": 1,\n        \"dynamicVlan\": \"disabled\",\n        \"keyStr\": \"w1r3l3ss-fr33d0m\",\n        \"broadcastSsid\": \"enabled\",\n        \"keyRefresh\": 0,\n        \"noLocalSubnets\": false,\n        \"radiusServiceId\": 0,\n        \"radiusAcountingServiceInterval\": 60,\n        \"captivePortalId\": null,\n        \"bandwidthLimitDown\": 0,\n        \"bandwidthLimitUp\": 0,\n        \"clientBandwidthLimitDown\": 0,\n        \"clientBandwidthLimitUp\": 0,\n        \"videoTrafficOnly\": false,\n        \"radioBasedConfigs\": {\n            \"is2dot4GHz\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            },\n            \"is5GHz\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            },\n            \"is5GHzU\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            },\n            \"is5GHzL\": {\n                \"model_type\": \"RadioBasedSsidConfiguration\",\n                \"enable80211r\": null,\n                \"enable80211k\": null,\n                \"enable80211v\": null\n            }\n        },\n        \"bonjourGatewayProfileId\": null,\n        \"enable80211w\": null,\n        \"wepConfig\": null,\n        \"forwardMode\": \"NAT\",\n        \"profileType\": \"ssid\",\n        \"radiusClientConfiguration\": {\n            \"model_type\": \"RadiusNasConfiguration\",\n            \"nasClientId\": \"DEFAULT\",\n            \"nasClientIp\": \"WAN_IP\",\n            \"userDefinedNasId\": null,\n            \"userDefinedNasIp\": null,\n            \"operatorId\": null\n        }\n    },\n    \"createdTimestamp\": 0,\n    \"lastModifiedTimestamp\": 0,\n    \"childProfileIds\": []\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/portal/profile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"profile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"amet voluptate\",\n \"path\": \"ullamco in nulla\",\n \"timestamp\": 13987051\n}"
+								},
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"profileType\": \"equipment_ap\",\n    \"customerId\": 2,\n    \"name\": \"example AP profile\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/portal/profile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"profile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"profileType\": \"equipment_ap\",\n \"customerId\": 2,\n \"name\": \"example AP profile\"\n}"
+								}
+							]
 						}
 					]
 				},
@@ -7316,6 +7582,494 @@
 											"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"velit ex enim\",\n \"path\": \"in aliquip\",\n \"timestamp\": 62405592\n}"
 										}
 									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "adoption metrics",
+					"item": [
+						{
+							"name": "Get daily service adoption metrics for a given year filtered by specified equipment ids",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var moment = require('moment')",
+											"",
+											"postman.setEnvironmentVariable(\"year\", moment().format('YYYY'));",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C5334 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C5334 Returned stats are only from equipment and year\", function () {",
+											"var moment = require('moment')",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData, (item) => {",
+											"        pm.expect(item.locationId).to.equal(parseInt(pm.environment.get('existingLocationId')));",
+											"        pm.expect(item.year).to.equal(parseInt(pm.environment.get('year')));",
+											"    })",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/adoptionMetrics/perEquipmentPerDay?year={{year}}&equipmentIds={{existingEquipmentId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"adoptionMetrics",
+										"perEquipmentPerDay"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "{{year}}",
+											"description": "(Required) "
+										},
+										{
+											"key": "equipmentIds",
+											"value": "{{existingEquipmentId}}",
+											"description": "(Required) filter by equipment ids."
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/adoptionMetrics/perEquipmentPerDay?year=<integer>&equipmentIds=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"adoptionMetrics",
+												"perEquipmentPerDay"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "<integer>"
+												},
+												{
+													"key": "equipmentIds",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"year\": -71876043,\n  \"month\": 47136930,\n  \"weekOfYear\": -96272844,\n  \"dayOfYear\": -92904499,\n  \"customerId\": -45070873,\n  \"locationId\": 79611277,\n  \"equipmentId\": -79229910,\n  \"numUniqueConnectedMacs\": -69516471,\n  \"numBytesUpstream\": -13209303,\n  \"numBytesDownstream\": 84007436\n },\n {\n  \"year\": -60842601,\n  \"month\": 99879735,\n  \"weekOfYear\": -53349797,\n  \"dayOfYear\": -5895465,\n  \"customerId\": 46467835,\n  \"locationId\": -7154655,\n  \"equipmentId\": -68322058,\n  \"numUniqueConnectedMacs\": -24481837,\n  \"numBytesUpstream\": -8986621,\n  \"numBytesDownstream\": -57469047\n }\n]"
+								},
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/adoptionMetrics/perEquipmentPerDay?year=<integer>&equipmentIds=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"adoptionMetrics",
+												"perEquipmentPerDay"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "<integer>"
+												},
+												{
+													"key": "equipmentIds",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"esse aliquip est\",\n \"path\": \"c\",\n \"timestamp\": 13307210\n}"
+								}
+							]
+						},
+						{
+							"name": "Get daily service adoption metrics for a given year aggregated by location and filtered by specified location ids",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C5335 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C5335 Returned stats are only from customer\", function () {",
+											"var moment = require('moment')",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData, (item) => {",
+											"        pm.expect(item.locationId).to.equal(parseInt(pm.environment.get('existingLocationId')));",
+											"        pm.expect(item.year).to.equal(parseInt(pm.environment.get('year')));",
+											"    })",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var moment = require('moment')",
+											"",
+											"postman.setEnvironmentVariable(\"year\", moment().format('YYYY'));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/adoptionMetrics/perLocationPerDay?year=2021&locationIds={{existingLocationId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"adoptionMetrics",
+										"perLocationPerDay"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2021",
+											"description": "(Required) "
+										},
+										{
+											"key": "locationIds",
+											"value": "{{existingLocationId}}",
+											"description": "(Required) filter by location ids."
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/adoptionMetrics/perLocationPerDay?year=<integer>&locationIds=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"adoptionMetrics",
+												"perLocationPerDay"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "<integer>"
+												},
+												{
+													"key": "locationIds",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"year\": -71876043,\n  \"month\": 47136930,\n  \"weekOfYear\": -96272844,\n  \"dayOfYear\": -92904499,\n  \"customerId\": -45070873,\n  \"locationId\": 79611277,\n  \"equipmentId\": -79229910,\n  \"numUniqueConnectedMacs\": -69516471,\n  \"numBytesUpstream\": -13209303,\n  \"numBytesDownstream\": 84007436\n },\n {\n  \"year\": -60842601,\n  \"month\": 99879735,\n  \"weekOfYear\": -53349797,\n  \"dayOfYear\": -5895465,\n  \"customerId\": 46467835,\n  \"locationId\": -7154655,\n  \"equipmentId\": -68322058,\n  \"numUniqueConnectedMacs\": -24481837,\n  \"numBytesUpstream\": -8986621,\n  \"numBytesDownstream\": -57469047\n }\n]"
+								},
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/adoptionMetrics/perLocationPerDay?year=<integer>&locationIds=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"adoptionMetrics",
+												"perLocationPerDay"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "<integer>"
+												},
+												{
+													"key": "locationIds",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"esse aliquip est\",\n \"path\": \"c\",\n \"timestamp\": 13307210\n}"
+								}
+							]
+						},
+						{
+							"name": "Get daily service adoption metrics for a given year aggregated by customer and filtered by specified customer ids",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"C5336 Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"C5336 Returned stats are only from customer\", function () {",
+											"var jsonData = pm.response.json();",
+											"    _.each(jsonData, (item) => {",
+											"        pm.expect(item.customerId).to.equal(parseInt(pm.environment.get('customerId')));",
+											"        pm.expect(item.year).to.equal(parseInt(pm.environment.get('year')));",
+											"    })",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var moment = require('moment')",
+											"",
+											"postman.setEnvironmentVariable(\"year\", moment().format('YYYY'));"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/portal/adoptionMetrics/perCustomerPerDay?year=2021&customerIds={{customerId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"portal",
+										"adoptionMetrics",
+										"perCustomerPerDay"
+									],
+									"query": [
+										{
+											"key": "year",
+											"value": "2021",
+											"description": "(Required) "
+										},
+										{
+											"key": "customerIds",
+											"value": "{{customerId}}",
+											"description": "(Required) filter by customer ids."
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/adoptionMetrics/perCustomerPerDay?year=<integer>&customerIds=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"adoptionMetrics",
+												"perCustomerPerDay"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "<integer>"
+												},
+												{
+													"key": "customerIds",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"year\": -71876043,\n  \"month\": 47136930,\n  \"weekOfYear\": -96272844,\n  \"dayOfYear\": -92904499,\n  \"customerId\": -45070873,\n  \"locationId\": 79611277,\n  \"equipmentId\": -79229910,\n  \"numUniqueConnectedMacs\": -69516471,\n  \"numBytesUpstream\": -13209303,\n  \"numBytesDownstream\": 84007436\n },\n {\n  \"year\": -60842601,\n  \"month\": 99879735,\n  \"weekOfYear\": -53349797,\n  \"dayOfYear\": -5895465,\n  \"customerId\": 46467835,\n  \"locationId\": -7154655,\n  \"equipmentId\": -68322058,\n  \"numUniqueConnectedMacs\": -24481837,\n  \"numBytesUpstream\": -8986621,\n  \"numBytesDownstream\": -57469047\n }\n]"
+								},
+								{
+									"name": "this object is returned in the cases when an API throws an exception",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": {
+													"content": "Added as a part of security scheme: bearer",
+													"type": "text/plain"
+												},
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/portal/adoptionMetrics/perCustomerPerDay?year=<integer>&customerIds=",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"portal",
+												"adoptionMetrics",
+												"perCustomerPerDay"
+											],
+											"query": [
+												{
+													"key": "year",
+													"value": "<integer>"
+												},
+												{
+													"key": "customerIds",
+													"value": ""
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"exType\": \"IllegalStateException\",\n \"error\": \"esse aliquip est\",\n \"path\": \"c\",\n \"timestamp\": 13307210\n}"
 								}
 							]
 						}
