@@ -898,7 +898,7 @@ def main(ap_model, firmware, radio, ssid_name, ssid_psk, security, station, runt
     ####### Setup UDP Profile and Run Traffic Downstream (AP to STA)  #######################
     singleClient.setup()
     side_a_min_bps = 56000
-    side_b_min_bps = 5000000
+    side_b_min_bps = 250000000
     side_a_min_pdu = 1200
     side_b_min_pdu = 1500
     direction = "Downstream"
@@ -915,7 +915,7 @@ def main(ap_model, firmware, radio, ssid_name, ssid_psk, security, station, runt
 
     ####### Setup UDP Profile and Run Traffic Upstream (STA to AP)  #######################
     #singleClient.setup()
-    side_a_min_bps = 5000000
+    side_a_min_bps = 250000000
     side_b_min_bps = 0
     side_a_min_pdu = 1200
     side_b_min_pdu = 1500
@@ -936,7 +936,7 @@ def main(ap_model, firmware, radio, ssid_name, ssid_psk, security, station, runt
     ####### Setup TCP Profile and Run Traffic Downstream (AP to STA)  #######################
     #singleClient.setup()
     side_a_min_bps = 0
-    side_b_min_bps = 5000000
+    side_b_min_bps = 250000000
     direction = "Downstream"
     values_line = 1        # 1 = Station Rx
     try:
@@ -950,7 +950,7 @@ def main(ap_model, firmware, radio, ssid_name, ssid_psk, security, station, runt
 
     ####### Setup TCP Profile and Run Traffic Upstream (STA to AP)  #######################
     #singleClient.setup()
-    side_a_min_bps = 5000000
+    side_a_min_bps = 250000000
     side_b_min_bps = 0
     direction = "Upstream"
     values_line = 3        # 3 = AP Rx
@@ -992,7 +992,7 @@ def eap_tput(sta_list, ssid_name, radio, security, eap_type, identity, ttls_pass
     ####### Setup UDP Profile and Run Traffic Downstream (AP to STA)  #######################
     eap_connect.setup()
     side_a_min_bps = 56000
-    side_b_min_bps = 5000000
+    side_b_min_bps = 250000000
     side_a_min_pdu = 1200
     side_b_min_pdu = 1500
     direction = "Downstream"
@@ -1009,7 +1009,7 @@ def eap_tput(sta_list, ssid_name, radio, security, eap_type, identity, ttls_pass
 
     ####### Setup UDP Profile and Run Traffic Upstream (STA to AP)  #######################
     #singleClient.setup()
-    side_a_min_bps = 5000000
+    side_a_min_bps = 250000000
     side_b_min_bps = 0
     side_a_min_pdu = 1200
     side_b_min_pdu = 1500
@@ -1030,7 +1030,7 @@ def eap_tput(sta_list, ssid_name, radio, security, eap_type, identity, ttls_pass
     ####### Setup TCP Profile and Run Traffic Downstream (AP to STA)  #######################
     #singleClient.setup()
     side_a_min_bps = 0
-    side_b_min_bps = 5000000
+    side_b_min_bps = 250000000
     direction = "Downstream"
     values_line = 1        # 1 = Station Rx
     try:
@@ -1044,7 +1044,7 @@ def eap_tput(sta_list, ssid_name, radio, security, eap_type, identity, ttls_pass
 
     ####### Setup TCP Profile and Run Traffic Upstream (STA to AP)  #######################
     #singleClient.setup()
-    side_a_min_bps = 5000000
+    side_a_min_bps = 250000000
     side_b_min_bps = 0
     direction = "Upstream"
     values_line = 3        # 3 = AP Rx

@@ -15,6 +15,7 @@ from cloud_connect import CloudSDK
 def main(fw_model, cloudSDK_url, cloud_type, customer_id, cloud_user, cloud_password, mode, ssid_psk, radius_profile, rf_profile, vlan, ssid_list):
     ssid_template = "../templates/ssid_profile_template.json"
     ap_template = "../templates/ap_profile_template.json"
+    name = fw_model + " Automation_TPUT_" + mode
 
     if mode == 'nat':
         ssid_mode = "NAT"
@@ -26,13 +27,22 @@ def main(fw_model, cloudSDK_url, cloud_type, customer_id, cloud_user, cloud_pass
     # Profile Dictionary
     profile_list = []
 
+    # Delete any existing profiles with the same name
+    # Delete existing SSID profiles
     for key in ssid_list:
         existing_profile = CloudSDK.get_profile_by_name(cloudSDK_url, bearer, str(customer_id), str(ssid_list[key]))
         if not existing_profile:
             pass
         else:
             for x in existing_profile:
-                delete_profile = CloudSDK.delete_profile(cloudSDK_url, bearer, str(x))
+                CloudSDK.delete_profile(cloudSDK_url, bearer, str(x))
+    # Delete existing AP profiles
+    existing_ap_profile = CloudSDK.get_profile_by_name(cloudSDK_url, bearer, str(customer_id), str(name))
+    if not existing_ap_profile:
+        pass
+    else:
+        for x in existing_ap_profile:
+            CloudSDK.delete_profile(cloudSDK_url, bearer, str(x))
 
     print(fw_model)
     # Create Profiles
@@ -92,7 +102,6 @@ def main(fw_model, cloudSDK_url, cloud_type, customer_id, cloud_user, cloud_pass
                       rf_profile]
     print(child_profiles)
 
-    name = fw_model + " Automation_TPUT_"+mode
     create_ap_profile = CloudSDK.create_ap_profile(cloudSDK_url, bearer, ap_template, name, customer_id, child_profiles)
     profile_list.append(create_ap_profile)
     ap_profile = create_ap_profile
