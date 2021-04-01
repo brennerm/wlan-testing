@@ -97,3 +97,6 @@ class TestFirmware(object):
 @pytest.mark.shivamy(before='test_something_2')
 def test_something_1():
     assert True
+
+def test_something_1001():
+    assert True
