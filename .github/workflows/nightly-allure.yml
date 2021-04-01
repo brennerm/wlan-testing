@@ -28,6 +28,10 @@ jobs:
       run: pytest --alluredir=allure-results
       shell: sh
       working-directory: tests/tests
+    - name: keep last 50 runs
+      run: ls | head -n -21 | xargs rm -rf
+      shell: sh
+      working-directory: reports
 
     - name: Allure Report action
       uses: simple-elf/allure-report-action@master
