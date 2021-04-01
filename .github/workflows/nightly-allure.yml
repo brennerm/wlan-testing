@@ -2,8 +2,9 @@ name: reports build
 
 on:
   workflow_dispatch:
-  schedule:
-  - cron: '15 0 * * *'
+  push:
+    branches:
+      - pending-library-updates-reports
 
 jobs:
   test:
