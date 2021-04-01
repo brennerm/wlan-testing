@@ -1,4 +1,4 @@
-name: nightly build
+name: reports build
 
 on:
   workflow_dispatch:
