@@ -6,25 +6,25 @@
       "name" : "AssertionError: assert False",
       "children" : [ {
         "name" : "test_ap_firmware",
-        "uid" : "cc9f90edc0eb6edb",
+        "uid" : "41dbfed2f622ffc",
         "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
         "status" : "failed",
         "time" : {
-          "start" : 1617264437625,
-          "stop" : 1617264437626,
-          "duration" : 1
+          "start" : 1617264669509,
+          "stop" : 1617264669509,
+          "duration" : 0
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       }, {
         "name" : "test_ap_manager_state",
-        "uid" : "c022cca00ae482a7",
+        "uid" : "b4e60abe3a89bdcf",
         "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
         "status" : "failed",
         "time" : {
-          "start" : 1617264487766,
-          "stop" : 1617264487766,
+          "start" : 1617264719636,
+          "stop" : 1617264719636,
           "duration" : 0
         },
         "flaky" : false,

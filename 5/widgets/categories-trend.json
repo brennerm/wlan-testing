@@ -6,5 +6,12 @@
     "Product defects" : 2
   }
 }, {
+  "buildOrder" : 5,
+  "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5/",
+  "reportName" : "Allure Report with history",
+  "data" : {
+    "Product defects" : 2
+  }
+}, {
   "data" : { }
 } ]

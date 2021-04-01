@@ -11,6 +11,18 @@
     "total" : 21
   }
 }, {
+  "buildOrder" : 5,
+  "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5/",
+  "reportName" : "Allure Report with history",
+  "data" : {
+    "failed" : 2,
+    "broken" : 0,
+    "skipped" : 0,
+    "passed" : 19,
+    "unknown" : 0,
+    "total" : 21
+  }
+}, {
   "data" : {
     "failed" : 0,
     "broken" : 0,

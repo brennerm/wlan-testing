@@ -1,0 +1,169 @@
+{
+  "uid" : "e1fe3c0c1197e2c",
+  "name" : "test_profile_hard_cleanup",
+  "fullName" : "cloudsdk_tests.test_profile.TestProfileCleanup#test_profile_hard_cleanup",
+  "historyId" : "d063b85cd54fb27039bc6df21a2da3de",
+  "time" : {
+    "start" : 1617264725234,
+    "stop" : 1617264725235,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "cleanup_cloud_profiles",
+    "time" : {
+      "start" : 1617264722066,
+      "stop" : 1617264725234,
+      "duration" : 3168
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk",
+    "time" : {
+      "start" : 1617264668242,
+      "stop" : 1617264668728,
+      "duration" : 486
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session",
+    "time" : {
+      "start" : 1617264658231,
+      "stop" : 1617264658231,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "cleanup_cloud_profiles::0",
+    "time" : {
+      "start" : 1617264725235,
+      "stop" : 1617264725235,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk::0",
+    "time" : {
+      "start" : 1617264731205,
+      "stop" : 1617264731205,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session::0",
+    "time" : {
+      "start" : 1617264731207,
+      "stop" : 1617264731207,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "hard_cleanup"
+  }, {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_profile"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProfileCleanup"
+  }, {
+    "name" : "host",
+    "value" : "583bf8e71d0b"
+  }, {
+    "name" : "thread",
+    "value" : "76-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_tests.test_profile"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "a0657347eefc23c4",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5//#testresult/a0657347eefc23c4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617264495679,
+          "stop" : 1617264495679,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ "hard_cleanup" ]
+  },
+  "source" : "e1fe3c0c1197e2c.json",
+  "parameterValues" : [ ]
+}

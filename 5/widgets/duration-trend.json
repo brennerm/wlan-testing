@@ -3,6 +3,13 @@
   "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5/",
   "reportName" : "Allure Report with history",
   "data" : {
+    "duration" : 72978
+  }
+}, {
+  "buildOrder" : 5,
+  "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5/",
+  "reportName" : "Allure Report with history",
+  "data" : {
     "duration" : 75698
   }
 }, {

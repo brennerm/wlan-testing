@@ -1,0 +1,320 @@
+{
+  "uid" : "38f59bfc3ba027ff",
+  "name" : "test_firmware_create",
+  "fullName" : "cloudsdk_tests.test_cloud.TestFirmware#test_firmware_create",
+  "historyId" : "289345620bc71f1b3bc824b6394de1d5",
+  "time" : {
+    "start" : 1617264721928,
+    "stop" : 1617264721929,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "get_latest_firmware",
+    "time" : {
+      "start" : 1617264668729,
+      "stop" : 1617264669508,
+      "duration" : 779
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_firmware",
+    "time" : {
+      "start" : 1617264668729,
+      "stop" : 1617264668729,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_jFrog",
+    "time" : {
+      "start" : 1617264668728,
+      "stop" : 1617264668728,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "upload_firmware",
+    "time" : {
+      "start" : 1617264719710,
+      "stop" : 1617264721927,
+      "duration" : 2217
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk",
+    "time" : {
+      "start" : 1617264668242,
+      "stop" : 1617264668728,
+      "duration" : 486
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session",
+    "time" : {
+      "start" : 1617264658231,
+      "stop" : 1617264658231,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "should_upload_firmware",
+    "time" : {
+      "start" : 1617264719709,
+      "stop" : 1617264719710,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "c807283482f9fe4",
+      "name" : "stdout",
+      "source" : "c807283482f9fe4.txt",
+      "type" : "text/plain",
+      "size" : 170
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "get_latest_firmware::0",
+    "time" : {
+      "start" : 1617264731204,
+      "stop" : 1617264731204,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_firmware::0",
+    "time" : {
+      "start" : 1617264731204,
+      "stop" : 1617264731204,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_jFrog::0",
+    "time" : {
+      "start" : 1617264731209,
+      "stop" : 1617264731209,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "upload_firmware::0",
+    "time" : {
+      "start" : 1617264731203,
+      "stop" : 1617264731203,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk::0",
+    "time" : {
+      "start" : 1617264731205,
+      "stop" : 1617264731205,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session::0",
+    "time" : {
+      "start" : 1617264731207,
+      "stop" : 1617264731207,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "should_upload_firmware::0",
+    "time" : {
+      "start" : 1617264731209,
+      "stop" : 1617264731209,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "firmware"
+  }, {
+    "name" : "tag",
+    "value" : "firmware_create"
+  }, {
+    "name" : "tag",
+    "value" : "nat"
+  }, {
+    "name" : "tag",
+    "value" : "bridge"
+  }, {
+    "name" : "tag",
+    "value" : "sanity(depends=['TestCloudSDK'])"
+  }, {
+    "name" : "tag",
+    "value" : "vlan"
+  }, {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_cloud"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestFirmware"
+  }, {
+    "name" : "host",
+    "value" : "583bf8e71d0b"
+  }, {
+    "name" : "thread",
+    "value" : "76-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_tests.test_cloud"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "6f241453213359c5",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5//#testresult/6f241453213359c5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617264490155,
+          "stop" : 1617264490156,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ "nat", "vlan", "sanity(depends=['TestCloudSDK'])", "firmware_create", "bridge", "firmware" ]
+  },
+  "source" : "38f59bfc3ba027ff.json",
+  "parameterValues" : [ ]
+}
