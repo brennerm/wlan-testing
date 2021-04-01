@@ -1,0 +1,299 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "children" : [ {
+    "name" : "09f972166a10",
+    "children" : [ {
+      "name" : "68-MainThread",
+      "children" : [ {
+        "name" : "test_something_2",
+        "uid" : "3b9634ae8e6e04ec",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277493442,
+          "stop" : 1617277493442,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa_5g",
+        "uid" : "c2d281a63d490ded",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277580360,
+          "stop" : 1617277580360,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_enterprise_2g",
+        "uid" : "e878bcf4510be0d3",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277581557,
+          "stop" : 1617277581558,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ap_firmware",
+        "uid" : "c147d51b7aea61c",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617277504880,
+          "stop" : 1617277504881,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ap_manager_state",
+        "uid" : "9e4a487b3a80abec",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617277554990,
+          "stop" : 1617277554990,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_radius_profile_creation",
+        "uid" : "52593dd71eeb2bb8",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277579820,
+          "stop" : 1617277579820,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_active_version_cloud",
+        "uid" : "6ca331678449f7bb",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617277557926,
+          "stop" : 1617277557926,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_cloud_sdk_version",
+        "uid" : "26b7b716902fcedc",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277555001,
+          "stop" : 1617277555159,
+          "duration" : 158
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_apnos_cloud",
+        "uid" : "f9081cfd93fcf33d",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277554998,
+          "stop" : 1617277554998,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_profile_cleanup",
+        "uid" : "17aeae6da3f441a1",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277573537,
+          "stop" : 1617277579702,
+          "duration" : 6165
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_personal_5g",
+        "uid" : "c89f817df6d94750",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277581255,
+          "stop" : 1617277581256,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_radius_profile_creation",
+        "uid" : "95eee6d911f82be4",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277580070,
+          "stop" : 1617277580070,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_enterprise_5g",
+        "uid" : "15f3b598b7e19217",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277581793,
+          "stop" : 1617277581793,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_firmware_create",
+        "uid" : "a678ee4b504049df",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277557581,
+          "stop" : 1617277557581,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_firmware_upgrade_request",
+        "uid" : "fa102a240b18e8f2",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617277557583,
+          "stop" : 1617277557583,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_reset_profile",
+        "uid" : "73ec87fe943337b",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277580073,
+          "stop" : 1617277580073,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_something_1001",
+        "uid" : "57f0942b02b28da1",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277557933,
+          "stop" : 1617277557933,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_something_1",
+        "uid" : "aaf7a25ffbf8dbe1",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277557931,
+          "stop" : 1617277557931,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa_2g",
+        "uid" : "8bca55d23c25e985",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277580678,
+          "stop" : 1617277580678,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_personal_2g",
+        "uid" : "4acdb749ba5ab9c9",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277580869,
+          "stop" : 1617277580870,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_profile_hard_cleanup",
+        "uid" : "a02e4c06864f3493",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277573533,
+          "stop" : 1617277573534,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_something_3",
+        "uid" : "eb8ac7300d2bd13b",
+        "parentUid" : "08795c11813a1af4cedc6817bc971c60",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617277554996,
+          "stop" : 1617277554996,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "08795c11813a1af4cedc6817bc971c60"
+    } ],
+    "uid" : "5b45ff9a66c81837f9baa91910b2bad0"
+  } ],
+  "name" : "timeline"
+}
