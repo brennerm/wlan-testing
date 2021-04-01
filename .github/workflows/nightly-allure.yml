@@ -24,13 +24,10 @@ jobs:
         path: reports
         ref: gh-pages
 
-    - name: ls
-      shell: sh
-      run: ls -Rla
     - name: run tests
       run: pytest --alluredir=allure-results
       shell: sh
-      working-directory: tests
+      working-directory: tests/tests
 
     - name: Allure Report action
       uses: simple-elf/allure-report-action@master
