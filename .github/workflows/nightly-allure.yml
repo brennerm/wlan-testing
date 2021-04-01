@@ -32,20 +32,21 @@ jobs:
       run: ls | head -n -21 | xargs rm -rf
       shell: sh
       working-directory: reports
+      if: always()
 
     - name: Allure Report action
       uses: simple-elf/allure-report-action@master
-      if: always()
       with:
         allure_results: tests/tests/allure-results
         allure_report: tests/tests/allure-report
         allure_history: tests/tests/allure-history
         gh_pages: reports
+      if: always()
 
     - name: Deploy report to Github Pages
-      if: always()
       uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: tests/tests/allure-history
+      if: always()
