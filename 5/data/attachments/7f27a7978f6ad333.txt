@@ -1,0 +1,10 @@
+Connecting to jumphost: lanforge@192.168.200.80:22 with password: lanforge
+Testbed Selected: https://wlan-portal-svc-nola-ext-03.cicd.lab.wlan.tip.build
+ SDK_BASE_URL: https://wlan-portal-svc-nola-ext-03.cicd.lab.wlan.tip.build
+
+Login Credentials set to default: 
+ user_id: support@example.com
+ password: support
+
+Connected to CloudSDK Server
+5

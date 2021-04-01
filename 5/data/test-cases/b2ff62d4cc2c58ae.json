@@ -1,0 +1,56 @@
+{
+  "uid" : "b2ff62d4cc2c58ae",
+  "name" : "test_something_1",
+  "fullName" : "cloudsdk_tests.test_cloud#test_something_1",
+  "historyId" : "9faacf2fe0d27b1d6f1f3a3e8d03e4ae",
+  "time" : {
+    "start" : 1617264490320,
+    "stop" : 1617264490320,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "shivamy(before='test_something_2')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_cloud"
+  }, {
+    "name" : "host",
+    "value" : "d3d196992aaa"
+  }, {
+    "name" : "thread",
+    "value" : "75-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_tests.test_cloud"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "shivamy(before='test_something_2')" ]
+  },
+  "source" : "b2ff62d4cc2c58ae.json",
+  "parameterValues" : [ ]
+}

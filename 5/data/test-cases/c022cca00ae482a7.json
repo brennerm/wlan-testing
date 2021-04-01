@@ -1,0 +1,131 @@
+{
+  "uid" : "c022cca00ae482a7",
+  "name" : "test_ap_manager_state",
+  "fullName" : "ap_tests.test_apnos.TestConnection#test_ap_manager_state",
+  "historyId" : "1b2708d4c34d6e0c75524ed4fdb16874",
+  "time" : {
+    "start" : 1617264487766,
+    "stop" : 1617264487766,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert False",
+  "statusTrace" : "self = <test_apnos.TestConnection object at 0x7fe4e080da90>\nget_ap_manager_status = 'Error'\n\n    @pytest.mark.ap_manager_state\n    @pytest.mark.sanity(depends=['TestFirmwareAPNOS'])\n    def test_ap_manager_state(self, get_ap_manager_status):\n        print(\"4\")\n        if \"ACTIVE\" not in get_ap_manager_status:\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_connection\"], run_id=instantiate_project,\n            #                                      status_id=5,\n            #                                      msg='CloudSDK connectivity failed')\n            status = False\n        else:\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_connection\"], run_id=instantiate_project,\n            #                                      status_id=1,\n            #                                      msg='Manager status is Active')\n            status = True\n>       assert status\nE       assert False\n\nap_tests/test_apnos.py:56: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "get_ap_manager_status",
+    "time" : {
+      "start" : 1617264437717,
+      "stop" : 1617264487765,
+      "duration" : 50048
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert False",
+    "statusTrace" : "self = <test_apnos.TestConnection object at 0x7fe4e080da90>\nget_ap_manager_status = 'Error'\n\n    @pytest.mark.ap_manager_state\n    @pytest.mark.sanity(depends=['TestFirmwareAPNOS'])\n    def test_ap_manager_state(self, get_ap_manager_status):\n        print(\"4\")\n        if \"ACTIVE\" not in get_ap_manager_status:\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_connection\"], run_id=instantiate_project,\n            #                                      status_id=5,\n            #                                      msg='CloudSDK connectivity failed')\n            status = False\n        else:\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_connection\"], run_id=instantiate_project,\n            #                                      status_id=1,\n            #                                      msg='Manager status is Active')\n            status = True\n>       assert status\nE       assert False\n\nap_tests/test_apnos.py:56: AssertionError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "f88d32aac8044a2a",
+      "name" : "stdout",
+      "source" : "f88d32aac8044a2a.txt",
+      "type" : "text/plain",
+      "size" : 152
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "get_ap_manager_status::0",
+    "time" : {
+      "start" : 1617264487772,
+      "stop" : 1617264487772,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "basic"
+  }, {
+    "name" : "tag",
+    "value" : "nat(order=4)"
+  }, {
+    "name" : "tag",
+    "value" : "vlan(order=4)"
+  }, {
+    "name" : "tag",
+    "value" : "bridge(order=4)"
+  }, {
+    "name" : "tag",
+    "value" : "sanity(depends=['TestFirmwareAPNOS'])"
+  }, {
+    "name" : "tag",
+    "value" : "ap_connection"
+  }, {
+    "name" : "tag",
+    "value" : "ap_manager_state"
+  }, {
+    "name" : "parentSuite",
+    "value" : "ap_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_apnos"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestConnection"
+  }, {
+    "name" : "host",
+    "value" : "d3d196992aaa"
+  }, {
+    "name" : "thread",
+    "value" : "75-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "ap_tests.test_apnos"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ "vlan(order=4)", "bridge(order=4)", "sanity(depends=['TestFirmwareAPNOS'])", "basic", "nat(order=4)", "ap_connection", "ap_manager_state" ]
+  },
+  "source" : "c022cca00ae482a7.json",
+  "parameterValues" : [ ]
+}
