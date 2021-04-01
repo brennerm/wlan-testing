@@ -1,0 +1,55 @@
+name: nightly build
+
+on:
+  workflow_dispatch:
+  schedule:
+  - cron: '15 0 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: 4c74356b41/wlan-tip-allure
+    steps:
+    - name: Checkout tests
+      uses: actions/checkout@v2
+      with:
+        path: tests
+        ref: pending-library-updates-reports
+    - name: Checkout reports
+      uses: actions/checkout@v2
+      if: always()
+      continue-on-error: true
+      with:
+        path: reports
+        ref: reports
+
+    - name: run tests
+      run: pytest --alluredir /tmp/allure
+      shell: bash
+      working-directory: tests
+    - name: run tests
+      run: ls -Rla
+      shell: bash
+      working-directory: tests
+
+    - name: Keep last 20 reports
+      if: always()
+      run: ls | head -n -21 | xargs rm -rd
+      working-directory: reports
+
+    - name: Allure Report action
+      uses: simple-elf/allure-report-action@master
+      if: always()
+      with:
+        allure_results: /tmp/allure
+        allure_report: tests/tests/allure-report
+        allure_history: tests/tests/allure-history
+        gh_pages: reports
+
+    - name: Deploy report to Github Pages
+      if: always()
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: reports
+        PUBLISH_DIR: allure-history

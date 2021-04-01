@@ -1,0 +1,11 @@
+FROM wlan-tip-tests
+ENV ALLURE_VERSION="2.13.9"
+ENV PATH $PATH:/opt/allure/bin
+
+RUN apk add openjdk8-jre
+RUN wget -O /allure.zip https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.zip \
+    && unzip /allure.zip -d /opt \
+    && mv /opt/allure-${ALLURE_VERSION} /opt/allure \
+    && rm /allure.zip
+
+EXPOSE 30000

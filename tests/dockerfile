@@ -1,11 +1,15 @@
 FROM python:alpine3.12
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
 WORKDIR /tests
 COPY . /tests
 
+RUN apk update && apk add gcc libc-dev libffi-dev openssl-dev make
 RUN mkdir ~/.pip \
     && echo "[global]" > ~/.pip/pip.conf \
     && echo "index-url = https://pypi.org/simple" >> ~/.pip/pip.conf \
     && echo "extra-index-url = https://tip-read:tip-read@tip.jfrog.io/artifactory/api/pypi/tip-wlan-python-pypi-local/simple" >> ~/.pip/pip.conf
+RUN pip install --upgrade pip
 RUN pip3 install -r requirements.txt
 
 ENTRYPOINT [ "/bin/sh" ]
