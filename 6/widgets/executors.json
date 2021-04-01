@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://Telecominfraproject.github.io/wlan-testing",
+  "buildOrder" : 6,
+  "buildName" : "GitHub Actions Run #707868379",
+  "buildUrl" : "https://github.com/Telecominfraproject/wlan-testing/actions/runs/707868379",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/6/"
+} ]

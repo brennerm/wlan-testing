@@ -1,0 +1,37 @@
+{
+  "total" : 3,
+  "items" : [ {
+    "uid" : "b8f2c2e2dce3ccb8a866edef8ba12ac1",
+    "name" : "ap_tests",
+    "statistic" : {
+      "failed" : 2,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "e7e7032624663585d1d948e3d25a29c8",
+    "name" : "cloudsdk_tests",
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 14,
+      "unknown" : 0,
+      "total" : 16
+    }
+  }, {
+    "uid" : "6765dc2fafac2ea3fe18c966b0cc2aed",
+    "name" : "cloudsdk_apnos",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  } ]
+}
