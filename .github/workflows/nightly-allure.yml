@@ -22,7 +22,7 @@ jobs:
       continue-on-error: true
       with:
         path: reports
-        ref: reports
+        ref: gh-pages
 
     - name: run tests
       run: pytest --alluredir /tmp/allure
@@ -52,5 +52,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUBLISH_BRANCH: reports
+        PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: allure-history
