@@ -26,11 +26,11 @@ jobs:
 
     - name: run tests
       run: pytest --alluredir /tmp/allure
-      shell: bash
+      shell: sh
       working-directory: tests
     - name: run tests
       run: ls -Rla
-      shell: bash
+      shell: sh
       working-directory: tests
 
     - name: Keep last 20 reports
