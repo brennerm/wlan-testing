@@ -1,0 +1,5 @@
+Firmware ID:  161
+Firmware Version Already Available, Deleting and Uploading Again
+Force Upload : True   Deleted current Image
+Force Upload : True   Uploaded the Image
+2

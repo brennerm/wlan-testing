@@ -1,0 +1,376 @@
+{
+  "uid" : "ba45d00ca84d89b4",
+  "name" : "test_firmware_upgrade_request",
+  "fullName" : "cloudsdk_tests.test_cloud.TestFirmware#test_firmware_upgrade_request",
+  "historyId" : "c5c8edb82679de93325df9704c8b359f",
+  "time" : {
+    "start" : 1617267058783,
+    "stop" : 1617267058783,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "statusMessage" : "swagger_client.rest.ApiException: (500)\nReason: \nHTTP response headers: HTTPHeaderDict({'Date': 'Thu, 01 Apr 2021 08:50:58 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nHTTP response body: {\n  \"model_type\" : \"JsonSerializedException\",\n  \"exType\" : \"DsEntityNotFoundException\",\n  \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\n  \"path\" : \"/portal/equipment?equipmentId=23\",\n  \"timestamp\" : 1617267058985\n}",
+  "statusTrace" : "request = <SubRequest 'upgrade_firmware' for <Function test_firmware_upgrade_request>>\ninstantiate_firmware = <cloudsdk.FirmwareUtility object at 0x7fd4173962b0>\nget_equipment_id = 23, check_ap_firmware_cloud = False\nget_latest_firmware = 'ecw5410-2021-03-30-pending-9cb289b'\nshould_upgrade_firmware = False\n\n    @pytest.fixture(scope=\"session\")\n    def upgrade_firmware(request, instantiate_firmware, get_equipment_id, check_ap_firmware_cloud, get_latest_firmware,\n                         should_upgrade_firmware):\n        if get_latest_firmware != check_ap_firmware_cloud:\n            if request.config.getoption(\"--skip-upgrade\"):\n                status = \"skip-upgrade\"\n            else:\n>               status = instantiate_firmware.upgrade_fw(equipment_id=get_equipment_id, force_upload=False,\n                                                         force_upgrade=should_upgrade_firmware)\n\nconftest.py:255: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../libs/cloudsdk/cloudsdk.py:712: in upgrade_fw\n    if (force_upgrade is True) or (self.should_upgrade_ap_fw(equipment_id=equipment_id)):\n../libs/cloudsdk/cloudsdk.py:729: in should_upgrade_ap_fw\n    model = self.sdk_client.get_model_name(equipment_id=equipment_id).lower()\n../libs/cloudsdk/cloudsdk.py:150: in get_model_name\n    data = self.equipment_client.get_equipment_by_id(equipment_id=equipment_id)\n/usr/local/lib/python3.9/site-packages/swagger_client/api/equipment_api.py:553: in get_equipment_by_id\n    (data) = self.get_equipment_by_id_with_http_info(equipment_id, **kwargs)  # noqa: E501\n/usr/local/lib/python3.9/site-packages/swagger_client/api/equipment_api.py:612: in get_equipment_by_id_with_http_info\n    return self.api_client.call_api(\n/usr/local/lib/python3.9/site-packages/swagger_client/api_client.py:316: in call_api\n    return self.__call_api(resource_path, method,\n/usr/local/lib/python3.9/site-packages/swagger_client/api_client.py:148: in __call_api\n    response_data = self.request(\n/usr/local/lib/python3.9/site-packages/swagger_client/api_client.py:338: in request\n    return self.rest_client.GET(url,\n/usr/local/lib/python3.9/site-packages/swagger_client/rest.py:233: in GET\n    return self.request(\"GET\", url,\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <swagger_client.rest.RESTClientObject object at 0x7fd41738ec10>\nmethod = 'GET'\nurl = 'https://wlan-portal-svc-nola-ext-03.cicd.lab.wlan.tip.build/portal/equipment'\nquery_params = [('equipmentId', 23)]\nheaders = {'Accept': 'application/json', 'Authorization': 'Bearer eyJpc3MiOiJ0aXAiLCJqdGkiOiI1N2M3YTE5NC05ZjZhLTQ1M2EtOWNiMS02MW...VBxKihIY0wq5qIECNSdRqgNx61CQEEQU8F0', 'Content-Type': 'application/json', 'User-Agent': 'Swagger-Codegen/1.0.0/python'}\nbody = None, post_params = {}, _preload_content = True, _request_timeout = None\n\n    def request(self, method, url, query_params=None, headers=None,\n                body=None, post_params=None, _preload_content=True,\n                _request_timeout=None):\n        \"\"\"Perform requests.\n    \n        :param method: http request method\n        :param url: http request url\n        :param query_params: query parameters in the url\n        :param headers: http request headers\n        :param body: request json body, for `application/json`\n        :param post_params: request post parameters,\n                            `application/x-www-form-urlencoded`\n                            and `multipart/form-data`\n        :param _preload_content: if False, the urllib3.HTTPResponse object will\n                                 be returned without reading/decoding response\n                                 data. Default is True.\n        :param _request_timeout: timeout setting for this request. If one\n                                 number provided, it will be total request\n                                 timeout. It can also be a pair (tuple) of\n                                 (connection, read) timeouts.\n        \"\"\"\n        method = method.upper()\n        assert method in ['GET', 'HEAD', 'DELETE', 'POST', 'PUT',\n                          'PATCH', 'OPTIONS']\n    \n        if post_params and body:\n            raise ValueError(\n                \"body parameter cannot be used with post_params parameter.\"\n            )\n    \n        post_params = post_params or {}\n        headers = headers or {}\n    \n        timeout = None\n        if _request_timeout:\n            if isinstance(_request_timeout, (int, ) if six.PY3 else (int, long)):  # noqa: E501,F821\n                timeout = urllib3.Timeout(total=_request_timeout)\n            elif (isinstance(_request_timeout, tuple) and\n                  len(_request_timeout) == 2):\n                timeout = urllib3.Timeout(\n                    connect=_request_timeout[0], read=_request_timeout[1])\n    \n        if 'Content-Type' not in headers:\n            headers['Content-Type'] = 'application/json'\n    \n        try:\n            # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`\n            if method in ['POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE']:\n                if query_params:\n                    url += '?' + urlencode(query_params)\n                if re.search('json', headers['Content-Type'], re.IGNORECASE):\n                    request_body = '{}'\n                    if body is not None:\n                        request_body = json.dumps(body)\n                    r = self.pool_manager.request(\n                        method, url,\n                        body=request_body,\n                        preload_content=_preload_content,\n                        timeout=timeout,\n                        headers=headers)\n                elif headers['Content-Type'] == 'application/x-www-form-urlencoded':  # noqa: E501\n                    r = self.pool_manager.request(\n                        method, url,\n                        fields=post_params,\n                        encode_multipart=False,\n                        preload_content=_preload_content,\n                        timeout=timeout,\n                        headers=headers)\n                elif headers['Content-Type'] == 'multipart/form-data':\n                    # must del headers['Content-Type'], or the correct\n                    # Content-Type which generated by urllib3 will be\n                    # overwritten.\n                    del headers['Content-Type']\n                    r = self.pool_manager.request(\n                        method, url,\n                        fields=post_params,\n                        encode_multipart=True,\n                        preload_content=_preload_content,\n                        timeout=timeout,\n                        headers=headers)\n                # Pass a `string` parameter directly in the body to support\n                # other content types than Json when `body` argument is\n                # provided in serialized form\n                elif isinstance(body, str):\n                    request_body = body\n                    r = self.pool_manager.request(\n                        method, url,\n                        body=request_body,\n                        preload_content=_preload_content,\n                        timeout=timeout,\n                        headers=headers)\n                else:\n                    # Cannot generate the request from given parameters\n                    msg = \"\"\"Cannot prepare a request message for provided\n                             arguments. Please check that your arguments match\n                             declared content type.\"\"\"\n                    raise ApiException(status=0, reason=msg)\n            # For `GET`, `HEAD`\n            else:\n                r = self.pool_manager.request(method, url,\n                                              fields=query_params,\n                                              preload_content=_preload_content,\n                                              timeout=timeout,\n                                              headers=headers)\n        except urllib3.exceptions.SSLError as e:\n            msg = \"{0}\\n{1}\".format(type(e).__name__, str(e))\n            raise ApiException(status=0, reason=msg)\n    \n        if _preload_content:\n            r = RESTResponse(r)\n    \n            # In the python 3, the response.data is bytes.\n            # we need to decode it to string.\n            if six.PY3:\n                r.data = r.data.decode('utf8')\n    \n            # log response body\n            logger.debug(\"response body: %s\", r.data)\n    \n        if not 200 <= r.status <= 299:\n>           raise ApiException(http_resp=r)\nE           swagger_client.rest.ApiException: (500)\nE           Reason: \nE           HTTP response headers: HTTPHeaderDict({'Date': 'Thu, 01 Apr 2021 08:50:58 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nE           HTTP response body: {\nE             \"model_type\" : \"JsonSerializedException\",\nE             \"exType\" : \"DsEntityNotFoundException\",\nE             \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\nE             \"path\" : \"/portal/equipment?equipmentId=23\",\nE             \"timestamp\" : 1617267058985\nE           }\n\n/usr/local/lib/python3.9/site-packages/swagger_client/rest.py:227: ApiException",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "should_upgrade_firmware",
+    "time" : {
+      "start" : 1617267058917,
+      "stop" : 1617267058917,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_latest_firmware",
+    "time" : {
+      "start" : 1617267005551,
+      "stop" : 1617267006306,
+      "duration" : 755
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_equipment_id",
+    "time" : {
+      "start" : 1617267058784,
+      "stop" : 1617267058784,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session",
+    "time" : {
+      "start" : 1617266994706,
+      "stop" : 1617266994706,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk",
+    "time" : {
+      "start" : 1617267004717,
+      "stop" : 1617267005550,
+      "duration" : 833
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_jFrog",
+    "time" : {
+      "start" : 1617267005551,
+      "stop" : 1617267005551,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_firmware",
+    "time" : {
+      "start" : 1617267005551,
+      "stop" : 1617267005551,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "check_ap_firmware_cloud",
+    "time" : {
+      "start" : 1617267058784,
+      "stop" : 1617267058917,
+      "duration" : 133
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "upgrade_firmware",
+    "time" : {
+      "start" : 1617267058917,
+      "stop" : 1617267058994,
+      "duration" : 77
+    },
+    "status" : "broken",
+    "statusMessage" : "swagger_client.rest.ApiException: (500)\nReason: \nHTTP response headers: HTTPHeaderDict({'Date': 'Thu, 01 Apr 2021 08:50:58 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nHTTP response body: {\n  \"model_type\" : \"JsonSerializedException\",\n  \"exType\" : \"DsEntityNotFoundException\",\n  \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\n  \"path\" : \"/portal/equipment?equipmentId=23\",\n  \"timestamp\" : 1617267058985\n}\n\n",
+    "statusTrace" : "  File \"/usr/local/lib/python3.9/site-packages/pluggy/callers.py\", line 187, in _multicall\n    res = hook_impl.function(*args)\n  File \"/usr/local/lib/python3.9/site-packages/_pytest/fixtures.py\", line 1126, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n  File \"/usr/local/lib/python3.9/site-packages/_pytest/fixtures.py\", line 925, in call_fixture_func\n    fixture_result = next(generator)\n  File \"/__w/wlan-testing/wlan-testing/tests/tests/conftest.py\", line 255, in upgrade_firmware\n    status = instantiate_firmware.upgrade_fw(equipment_id=get_equipment_id, force_upload=False,\n  File \"../libs/cloudsdk/cloudsdk.py\", line 712, in upgrade_fw\n    if (force_upgrade is True) or (self.should_upgrade_ap_fw(equipment_id=equipment_id)):\n  File \"../libs/cloudsdk/cloudsdk.py\", line 729, in should_upgrade_ap_fw\n    model = self.sdk_client.get_model_name(equipment_id=equipment_id).lower()\n  File \"../libs/cloudsdk/cloudsdk.py\", line 150, in get_model_name\n    data = self.equipment_client.get_equipment_by_id(equipment_id=equipment_id)\n  File \"/usr/local/lib/python3.9/site-packages/swagger_client/api/equipment_api.py\", line 553, in get_equipment_by_id\n    (data) = self.get_equipment_by_id_with_http_info(equipment_id, **kwargs)  # noqa: E501\n  File \"/usr/local/lib/python3.9/site-packages/swagger_client/api/equipment_api.py\", line 612, in get_equipment_by_id_with_http_info\n    return self.api_client.call_api(\n  File \"/usr/local/lib/python3.9/site-packages/swagger_client/api_client.py\", line 316, in call_api\n    return self.__call_api(resource_path, method,\n  File \"/usr/local/lib/python3.9/site-packages/swagger_client/api_client.py\", line 148, in __call_api\n    response_data = self.request(\n  File \"/usr/local/lib/python3.9/site-packages/swagger_client/api_client.py\", line 338, in request\n    return self.rest_client.GET(url,\n  File \"/usr/local/lib/python3.9/site-packages/swagger_client/rest.py\", line 233, in GET\n    return self.request(\"GET\", url,\n  File \"/usr/local/lib/python3.9/site-packages/swagger_client/rest.py\", line 227, in request\n    raise ApiException(http_resp=r)\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  } ],
+  "afterStages" : [ {
+    "name" : "should_upgrade_firmware::0",
+    "time" : {
+      "start" : 1617267072102,
+      "stop" : 1617267072102,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_latest_firmware::0",
+    "time" : {
+      "start" : 1617267072097,
+      "stop" : 1617267072097,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_equipment_id::0",
+    "time" : {
+      "start" : 1617267072099,
+      "stop" : 1617267072099,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session::0",
+    "time" : {
+      "start" : 1617267072100,
+      "stop" : 1617267072100,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk::0",
+    "time" : {
+      "start" : 1617267072098,
+      "stop" : 1617267072098,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_jFrog::0",
+    "time" : {
+      "start" : 1617267072102,
+      "stop" : 1617267072102,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_firmware::0",
+    "time" : {
+      "start" : 1617267072098,
+      "stop" : 1617267072098,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "check_ap_firmware_cloud::0",
+    "time" : {
+      "start" : 1617267072096,
+      "stop" : 1617267072096,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "firmware_upgrade"
+  }, {
+    "name" : "tag",
+    "value" : "sanity(depends=['TestCloudSDK'])"
+  }, {
+    "name" : "tag",
+    "value" : "firmware"
+  }, {
+    "name" : "tag",
+    "value" : "nat"
+  }, {
+    "name" : "tag",
+    "value" : "bridge"
+  }, {
+    "name" : "tag",
+    "value" : "vlan"
+  }, {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_cloud"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestFirmware"
+  }, {
+    "name" : "host",
+    "value" : "e60e0fd8c82d"
+  }, {
+    "name" : "thread",
+    "value" : "69-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_tests.test_cloud"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 2,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 4
+      },
+      "items" : [ {
+        "uid" : "ab41e8d37bd0b937",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/6//#testresult/ab41e8d37bd0b937",
+        "status" : "broken",
+        "statusDetails" : "swagger_client.rest.ApiException: (500)\nReason: \nHTTP response headers: HTTPHeaderDict({'Date': 'Thu, 01 Apr 2021 08:31:30 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nHTTP response body: {\n  \"model_type\" : \"JsonSerializedException\",\n  \"exType\" : \"DsEntityNotFoundException\",\n  \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\n  \"path\" : \"/portal/equipment?equipmentId=23\",\n  \"timestamp\" : 1617265890738\n}",
+        "time" : {
+          "start" : 1617265890559,
+          "stop" : 1617265890559,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "67f1c0d366a8b793",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5//#testresult/67f1c0d366a8b793",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617264722057,
+          "stop" : 1617264722058,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "4933ff8c5d6b51e2",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/5//#testresult/4933ff8c5d6b51e2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617264490314,
+          "stop" : 1617264490315,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ "nat", "vlan", "sanity(depends=['TestCloudSDK'])", "firmware_upgrade", "bridge", "firmware" ]
+  },
+  "source" : "ba45d00ca84d89b4.json",
+  "parameterValues" : [ ]
+}

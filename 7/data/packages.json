@@ -1,0 +1,298 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "ap_tests.test_apnos",
+    "children" : [ {
+      "name" : "test_something_2",
+      "uid" : "bba39bc1e5e9fd58",
+      "parentUid" : "13d34fa4ebe997f4c667eb44542c93e7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617266994694,
+        "stop" : 1617266994694,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_ap_firmware",
+      "uid" : "6b77a8fe31050e79",
+      "parentUid" : "13d34fa4ebe997f4c667eb44542c93e7",
+      "status" : "failed",
+      "time" : {
+        "start" : 1617267006307,
+        "stop" : 1617267006307,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_ap_manager_state",
+      "uid" : "15af739672441804",
+      "parentUid" : "13d34fa4ebe997f4c667eb44542c93e7",
+      "status" : "failed",
+      "time" : {
+        "start" : 1617267056438,
+        "stop" : 1617267056438,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "test_something_3",
+      "uid" : "4596ad6a6dba6b26",
+      "parentUid" : "13d34fa4ebe997f4c667eb44542c93e7",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617267056443,
+        "stop" : 1617267056443,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "ap_tests.test_apnos"
+  }, {
+    "name" : "cloudsdk_apnos.test_cloudsdk_apnos",
+    "children" : [ {
+      "name" : "test_apnos_cloud",
+      "uid" : "5b392f64a84d0e32",
+      "parentUid" : "d0fc303f7b215a4d6dcf6c94d07a2328",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617267056445,
+        "stop" : 1617267056445,
+        "duration" : 0
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "cloudsdk_apnos.test_cloudsdk_apnos"
+  }, {
+    "name" : "cloudsdk_tests",
+    "children" : [ {
+      "name" : "test_cloud",
+      "children" : [ {
+        "name" : "test_cloud_sdk_version",
+        "uid" : "ff6a2fd3781eed58",
+        "parentUid" : "a8e14d3db1803d15109cd78c2e3f15f5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267056448,
+          "stop" : 1617267056508,
+          "duration" : 60
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_firmware_create",
+        "uid" : "2ce87bdb53371876",
+        "parentUid" : "a8e14d3db1803d15109cd78c2e3f15f5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267058781,
+          "stop" : 1617267058782,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_firmware_upgrade_request",
+        "uid" : "ba45d00ca84d89b4",
+        "parentUid" : "a8e14d3db1803d15109cd78c2e3f15f5",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617267058783,
+          "stop" : 1617267058783,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_active_version_cloud",
+        "uid" : "86867f388b1db9a3",
+        "parentUid" : "a8e14d3db1803d15109cd78c2e3f15f5",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617267059116,
+          "stop" : 1617267059116,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_something_1",
+        "uid" : "cd15559483344fda",
+        "parentUid" : "a8e14d3db1803d15109cd78c2e3f15f5",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267059120,
+          "stop" : 1617267059121,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "a8e14d3db1803d15109cd78c2e3f15f5"
+    }, {
+      "name" : "test_profile",
+      "children" : [ {
+        "name" : "test_profile_hard_cleanup",
+        "uid" : "af0746ed77b55967",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267066632,
+          "stop" : 1617267066632,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_profile_cleanup",
+        "uid" : "66eb562509ccc85e",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267066636,
+          "stop" : 1617267069449,
+          "duration" : 2813
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_radius_profile_creation",
+        "uid" : "6e7c04bf4f92293",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267069607,
+          "stop" : 1617267069607,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_radius_profile_creation",
+        "uid" : "b9fbc0357e894f5",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267070031,
+          "stop" : 1617267070031,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_reset_profile",
+        "uid" : "e1b41e896c459ae6",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267070033,
+          "stop" : 1617267070034,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa_5g",
+        "uid" : "f981d2b75a90694d",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267070319,
+          "stop" : 1617267070319,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa_2g",
+        "uid" : "d4b995ac87e9460d",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267070749,
+          "stop" : 1617267070750,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_personal_2g",
+        "uid" : "6a56d3359839c6be",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267071156,
+          "stop" : 1617267071157,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_personal_5g",
+        "uid" : "8cd9ba894143525a",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267071513,
+          "stop" : 1617267071513,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_enterprise_2g",
+        "uid" : "f25ce9d123f886df",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267071879,
+          "stop" : 1617267071879,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ssid_wpa2_enterprise_5g",
+        "uid" : "e245a650db4205cb",
+        "parentUid" : "e35496ee72f0dc0dac4b6d77bc1838ef",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617267072091,
+          "stop" : 1617267072091,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "e35496ee72f0dc0dac4b6d77bc1838ef"
+    } ],
+    "uid" : "68c14d55dea96ba551517a5bef89c9a0"
+  } ],
+  "name" : "packages"
+}
