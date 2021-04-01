@@ -24,25 +24,19 @@ jobs:
         path: reports
         ref: gh-pages
 
-    - name: run tests
-      run: pytest --alluredir /tmp/allure
+    - name: ls
       shell: sh
-      working-directory: tests
-    - name: run tests
       run: ls -Rla
+    - name: run tests
+      run: pytest --alluredir=allure-results
       shell: sh
       working-directory: tests
-
-    - name: Keep last 20 reports
-      if: always()
-      run: ls | head -n -21 | xargs rm -rd
-      working-directory: reports
 
     - name: Allure Report action
       uses: simple-elf/allure-report-action@master
       if: always()
       with:
-        allure_results: /tmp/allure
+        allure_results: tests/tests/allure-results
         allure_report: tests/tests/allure-report
         allure_history: tests/tests/allure-history
         gh_pages: reports
@@ -53,4 +47,4 @@ jobs:
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: allure-history
+        PUBLISH_DIR: tests/tests/allure-history
