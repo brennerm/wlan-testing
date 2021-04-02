@@ -1,0 +1,56 @@
+{
+  "uid" : "3e6ff86549f43a78",
+  "name" : "test_something_2",
+  "fullName" : "ap_tests.test_apnos#test_something_2",
+  "historyId" : "cdf117a37ff4644fe738fa9046f4dc07",
+  "time" : {
+    "start" : 1617358879952,
+    "stop" : 1617358879952,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "shivamy(after='test_something_1')"
+  }, {
+    "name" : "parentSuite",
+    "value" : "ap_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_apnos"
+  }, {
+    "name" : "host",
+    "value" : "cbb749607cb3"
+  }, {
+    "name" : "thread",
+    "value" : "75-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "ap_tests.test_apnos"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "shivamy(after='test_something_1')" ]
+  },
+  "source" : "3e6ff86549f43a78.json",
+  "parameterValues" : [ ]
+}

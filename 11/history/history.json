@@ -1,0 +1,446 @@
+{
+  "367af4393cc6bb577738008c3ba31c9a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d5587189d8e56a09",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/d5587189d8e56a09",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358944143,
+        "stop" : 1617358944143,
+        "duration" : 0
+      }
+    } ]
+  },
+  "3c204d3c9f4df96bbdb79f60c3d7fe9f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e1fd9476b198dc19",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/e1fd9476b198dc19",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358960044,
+        "stop" : 1617358960044,
+        "duration" : 0
+      }
+    } ]
+  },
+  "d063b85cd54fb27039bc6df21a2da3de" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "395f60ad4a902087",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/395f60ad4a902087",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358954366,
+        "stop" : 1617358954366,
+        "duration" : 0
+      }
+    } ]
+  },
+  "8ee710e06f158f22e07b1a7584c11d3f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "17e201e001f6226b",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/17e201e001f6226b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358941264,
+        "stop" : 1617358941315,
+        "duration" : 51
+      }
+    } ]
+  },
+  "21b2071884105ba3d23c81d58df26d50" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "20f0dd147a802293",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/20f0dd147a802293",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358961127,
+        "stop" : 1617358961128,
+        "duration" : 1
+      }
+    } ]
+  },
+  "6ab3e02ebed672beb97ffd7ab5eee335" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3affe8efc59cdd56",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/3affe8efc59cdd56",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358941261,
+        "stop" : 1617358941261,
+        "duration" : 0
+      }
+    } ]
+  },
+  "f72960165ebefa0c8349f50d52014a6b" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "56a7392cad45e223",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/56a7392cad45e223",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358941263,
+        "stop" : 1617358941263,
+        "duration" : 0
+      }
+    } ]
+  },
+  "289345620bc71f1b3bc824b6394de1d5" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d88f282a4b07c8c4",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/d88f282a4b07c8c4",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358943725,
+        "stop" : 1617358943726,
+        "duration" : 1
+      }
+    } ]
+  },
+  "c5c8edb82679de93325df9704c8b359f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "908cb520d8c293bf",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/908cb520d8c293bf",
+      "status" : "broken",
+      "statusDetails" : "swagger_client.rest.ApiException: (500)\nReason: \nHTTP response headers: HTTPHeaderDict({'Date': 'Fri, 02 Apr 2021 10:22:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nHTTP response body: {\n  \"model_type\" : \"JsonSerializedException\",\n  \"exType\" : \"DsEntityNotFoundException\",\n  \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\n  \"path\" : \"/portal/equipment?equipmentId=23\",\n  \"timestamp\" : 1617358944013\n}",
+      "time" : {
+        "start" : 1617358943727,
+        "stop" : 1617358943727,
+        "duration" : 0
+      }
+    } ]
+  },
+  "8a84029940188db912f6adcabfab6e5f" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "29205850760bb11f",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/29205850760bb11f",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert False",
+      "time" : {
+        "start" : 1617358944138,
+        "stop" : 1617358944138,
+        "duration" : 0
+      }
+    } ]
+  },
+  "93a0ee3884f11566887177df43e7e5da" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a03438c7cd2e0e1a",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/a03438c7cd2e0e1a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358962932,
+        "stop" : 1617358962932,
+        "duration" : 0
+      }
+    } ]
+  },
+  "6c786545943c08056d9ff79d09399fba" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e0cdda3807a87d81",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/e0cdda3807a87d81",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358959621,
+        "stop" : 1617358959621,
+        "duration" : 0
+      }
+    } ]
+  },
+  "9faacf2fe0d27b1d6f1f3a3e8d03e4ae" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "268770a0872bb0ab",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/268770a0872bb0ab",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358944142,
+        "stop" : 1617358944142,
+        "duration" : 0
+      }
+    } ]
+  },
+  "80b48210df6087d16e2c3a2617446470" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a4cabac798b1bb42",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/a4cabac798b1bb42",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358962314,
+        "stop" : 1617358962314,
+        "duration" : 0
+      }
+    } ]
+  },
+  "a7a7e795779e249e092c64a297bb146a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "27094f0aa412ee14",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/27094f0aa412ee14",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358960549,
+        "stop" : 1617358960549,
+        "duration" : 0
+      }
+    } ]
+  },
+  "c3f3938bc625c30f81b99f91bc61d7d7" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c29bde610c09648a",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/c29bde610c09648a",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert False",
+      "time" : {
+        "start" : 1617358891148,
+        "stop" : 1617358891148,
+        "duration" : 0
+      }
+    } ]
+  },
+  "cdf117a37ff4644fe738fa9046f4dc07" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3e6ff86549f43a78",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/3e6ff86549f43a78",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358879952,
+        "stop" : 1617358879952,
+        "duration" : 0
+      }
+    } ]
+  },
+  "bf9495bbe02cc027d8d66637038585b9" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b64e3ed2dc9e4f70",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/b64e3ed2dc9e4f70",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358961686,
+        "stop" : 1617358961687,
+        "duration" : 1
+      }
+    } ]
+  },
+  "2fde0e152145f1e3d8d14e0657cb8077" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "99664eaf94d54f00",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/99664eaf94d54f00",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358954369,
+        "stop" : 1617358958817,
+        "duration" : 4448
+      }
+    } ]
+  },
+  "cee2e314c79d2a1d8fe9680250eacb0f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "48533c9deb32ddc5",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/48533c9deb32ddc5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358959029,
+        "stop" : 1617358959029,
+        "duration" : 0
+      }
+    } ]
+  },
+  "1b2708d4c34d6e0c75524ed4fdb16874" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "d8b4a3110a6a3cec",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/d8b4a3110a6a3cec",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert False",
+      "time" : {
+        "start" : 1617358941256,
+        "stop" : 1617358941256,
+        "duration" : 0
+      }
+    } ]
+  },
+  "faad73f2685c27674bfc04532bd6f8e6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "34699d427c3c4a73",
+      "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/34699d427c3c4a73",
+      "status" : "passed",
+      "time" : {
+        "start" : 1617358959618,
+        "stop" : 1617358959618,
+        "duration" : 0
+      }
+    } ]
+  }
+}

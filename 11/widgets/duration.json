@@ -1,0 +1,221 @@
+[ {
+  "uid" : "e0cdda3807a87d81",
+  "name" : "test_reset_profile",
+  "time" : {
+    "start" : 1617358959621,
+    "stop" : 1617358959621,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3affe8efc59cdd56",
+  "name" : "test_something_3",
+  "time" : {
+    "start" : 1617358941261,
+    "stop" : 1617358941261,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "99664eaf94d54f00",
+  "name" : "test_profile_cleanup",
+  "time" : {
+    "start" : 1617358954369,
+    "stop" : 1617358958817,
+    "duration" : 4448
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "395f60ad4a902087",
+  "name" : "test_profile_hard_cleanup",
+  "time" : {
+    "start" : 1617358954366,
+    "stop" : 1617358954366,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b64e3ed2dc9e4f70",
+  "name" : "test_ssid_wpa2_personal_5g",
+  "time" : {
+    "start" : 1617358961686,
+    "stop" : 1617358961687,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "29205850760bb11f",
+  "name" : "test_active_version_cloud",
+  "time" : {
+    "start" : 1617358944138,
+    "stop" : 1617358944138,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "34699d427c3c4a73",
+  "name" : "test_radius_profile_creation",
+  "time" : {
+    "start" : 1617358959618,
+    "stop" : 1617358959618,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d5587189d8e56a09",
+  "name" : "test_something_1001",
+  "time" : {
+    "start" : 1617358944143,
+    "stop" : 1617358944143,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "48533c9deb32ddc5",
+  "name" : "test_radius_profile_creation",
+  "time" : {
+    "start" : 1617358959029,
+    "stop" : 1617358959029,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "20f0dd147a802293",
+  "name" : "test_ssid_wpa2_personal_2g",
+  "time" : {
+    "start" : 1617358961127,
+    "stop" : 1617358961128,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3e6ff86549f43a78",
+  "name" : "test_something_2",
+  "time" : {
+    "start" : 1617358879952,
+    "stop" : 1617358879952,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "268770a0872bb0ab",
+  "name" : "test_something_1",
+  "time" : {
+    "start" : 1617358944142,
+    "stop" : 1617358944142,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "27094f0aa412ee14",
+  "name" : "test_ssid_wpa_2g",
+  "time" : {
+    "start" : 1617358960549,
+    "stop" : 1617358960549,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a4cabac798b1bb42",
+  "name" : "test_ssid_wpa2_enterprise_2g",
+  "time" : {
+    "start" : 1617358962314,
+    "stop" : 1617358962314,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c29bde610c09648a",
+  "name" : "test_ap_firmware",
+  "time" : {
+    "start" : 1617358891148,
+    "stop" : 1617358891148,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "d88f282a4b07c8c4",
+  "name" : "test_firmware_create",
+  "time" : {
+    "start" : 1617358943725,
+    "stop" : 1617358943726,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "908cb520d8c293bf",
+  "name" : "test_firmware_upgrade_request",
+  "time" : {
+    "start" : 1617358943727,
+    "stop" : 1617358943727,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "e1fd9476b198dc19",
+  "name" : "test_ssid_wpa_5g",
+  "time" : {
+    "start" : 1617358960044,
+    "stop" : 1617358960044,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "17e201e001f6226b",
+  "name" : "test_cloud_sdk_version",
+  "time" : {
+    "start" : 1617358941264,
+    "stop" : 1617358941315,
+    "duration" : 51
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d8b4a3110a6a3cec",
+  "name" : "test_ap_manager_state",
+  "time" : {
+    "start" : 1617358941256,
+    "stop" : 1617358941256,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "56a7392cad45e223",
+  "name" : "test_apnos_cloud",
+  "time" : {
+    "start" : 1617358941263,
+    "stop" : 1617358941263,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a03438c7cd2e0e1a",
+  "name" : "test_ssid_wpa2_enterprise_5g",
+  "time" : {
+    "start" : 1617358962932,
+    "stop" : 1617358962932,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
