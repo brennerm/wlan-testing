@@ -3,6 +3,7 @@ About: It contains some Functional Unit Tests for CloudSDK and to run and test t
 """
 
 import pytest
+import allure
 import sys
 
 if 'cloudsdk_tests' not in sys.path:
@@ -100,3 +101,56 @@ def test_something_1():
 
 def test_something_1001():
     assert True
+
+def test_something_1002():
+    """
+    test description propagated to allure
+    """
+    assert True
+
+@allure.description_html("""
+<h1>Test with a complicated html description</h1>
+<table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr align="center">
+    <td>William</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr align="center">
+    <td>Vasya</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+""")
+def test_something_1003():
+    """test description propagated to allure
+    """
+    assert True
+
+TEST_CASE_LINK = 'https://github.com/qameta/allure-integrations/issues/8#issuecomment-268313637'
+
+
+@allure.link('https://www.youtube.com/watch?v=4YYzUTYZRMU')
+def test_with_link():
+    pass
+
+
+@allure.link('https://www.youtube.com/watch?v=Su5p2TqZxKU', name='Click me')
+def test_with_named_link():
+    pass
+
+
+@allure.issue('140', 'Pytest-flaky test retries shows like test steps')
+def test_with_issue_link():
+    pass
+
+
+@allure.testcase(TEST_CASE_LINK, 'Test case title')
+def test_with_testcase_link():
+    pass
