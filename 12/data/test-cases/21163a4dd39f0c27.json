@@ -1,0 +1,249 @@
+{
+  "uid" : "21163a4dd39f0c27",
+  "name" : "test_active_version_cloud",
+  "fullName" : "cloudsdk_tests.test_cloud.TestFirmware#test_active_version_cloud",
+  "historyId" : "8a84029940188db912f6adcabfab6e5f",
+  "time" : {
+    "start" : 1617362296748,
+    "stop" : 1617362296748,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert False",
+  "statusTrace" : "self = <tests.cloudsdk_tests.test_cloud.TestFirmware object at 0x7fc8db47c370>\ncheck_ap_firmware_cloud = False\n\n    @pytest.mark.check_active_firmware_cloud\n    def test_active_version_cloud(self, check_ap_firmware_cloud):\n        print(\"3\")\n        if not check_ap_firmware_cloud:\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_fw\"], run_id=instantiate_project,\n            #                                      status_id=5,\n            #                                      msg='CLOUDSDK reporting incorrect firmware version.')\n            PASS = False\n        else:\n            PASS = True\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_fw\"], run_id=instantiate_project,\n            #                                      status_id=1,\n            #                                      msg='CLOUDSDK reporting correct firmware version.')\n    \n>       assert PASS\nE       assert False\n\ncloudsdk_tests/test_cloud.py:95: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "instantiate_cloudsdk",
+    "time" : {
+      "start" : 1617362241987,
+      "stop" : 1617362242292,
+      "duration" : 305
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "check_ap_firmware_cloud",
+    "time" : {
+      "start" : 1617362295869,
+      "stop" : 1617362296292,
+      "duration" : 423
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_equipment_id",
+    "time" : {
+      "start" : 1617362295869,
+      "stop" : 1617362295869,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session",
+    "time" : {
+      "start" : 1617362231976,
+      "stop" : 1617362231976,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert False",
+    "statusTrace" : "self = <tests.cloudsdk_tests.test_cloud.TestFirmware object at 0x7fc8db47c370>\ncheck_ap_firmware_cloud = False\n\n    @pytest.mark.check_active_firmware_cloud\n    def test_active_version_cloud(self, check_ap_firmware_cloud):\n        print(\"3\")\n        if not check_ap_firmware_cloud:\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_fw\"], run_id=instantiate_project,\n            #                                      status_id=5,\n            #                                      msg='CLOUDSDK reporting incorrect firmware version.')\n            PASS = False\n        else:\n            PASS = True\n            # instantiate_testrail.update_testrail(case_id=TEST_CASES[\"cloud_fw\"], run_id=instantiate_project,\n            #                                      status_id=1,\n            #                                      msg='CLOUDSDK reporting correct firmware version.')\n    \n>       assert PASS\nE       assert False\n\ncloudsdk_tests/test_cloud.py:95: AssertionError",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "50f33f3ea1a60ffa",
+      "name" : "stdout",
+      "source" : "50f33f3ea1a60ffa.txt",
+      "type" : "text/plain",
+      "size" : 2
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "instantiate_cloudsdk::0",
+    "time" : {
+      "start" : 1617362309629,
+      "stop" : 1617362309629,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "check_ap_firmware_cloud::0",
+    "time" : {
+      "start" : 1617362309627,
+      "stop" : 1617362309627,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "get_equipment_id::0",
+    "time" : {
+      "start" : 1617362309630,
+      "stop" : 1617362309630,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session::0",
+    "time" : {
+      "start" : 1617362309631,
+      "stop" : 1617362309631,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "sanity(depends=['TestCloudSDK'])"
+  }, {
+    "name" : "tag",
+    "value" : "nat"
+  }, {
+    "name" : "tag",
+    "value" : "bridge"
+  }, {
+    "name" : "tag",
+    "value" : "check_active_firmware_cloud"
+  }, {
+    "name" : "tag",
+    "value" : "vlan"
+  }, {
+    "name" : "tag",
+    "value" : "firmware"
+  }, {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_cloud"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestFirmware"
+  }, {
+    "name" : "host",
+    "value" : "a93eea2639cd"
+  }, {
+    "name" : "thread",
+    "value" : "72-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_tests.test_cloud"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "history" : {
+      "statistic" : {
+        "failed" : 3,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "f8105f5cf570ea53",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/f8105f5cf570ea53",
+        "status" : "failed",
+        "statusDetails" : "AssertionError: assert False",
+        "time" : {
+          "start" : 1617359156547,
+          "stop" : 1617359156548,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "29205850760bb11f",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/29205850760bb11f",
+        "status" : "failed",
+        "statusDetails" : "AssertionError: assert False",
+        "time" : {
+          "start" : 1617358944138,
+          "stop" : 1617358944138,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ "nat", "vlan", "sanity(depends=['TestCloudSDK'])", "bridge", "check_active_firmware_cloud", "firmware" ]
+  },
+  "source" : "21163a4dd39f0c27.json",
+  "parameterValues" : [ ]
+}

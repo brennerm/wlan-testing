@@ -1,0 +1,73 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert False",
+      "children" : [ {
+        "name" : "test_ap_firmware",
+        "uid" : "8af8c5889fc8c4c0",
+        "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617362243092,
+          "stop" : 1617362243092,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_ap_manager_state",
+        "uid" : "2cfa630365c28fea",
+        "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617362293212,
+          "stop" : 1617362293212,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "test_active_version_cloud",
+        "uid" : "21163a4dd39f0c27",
+        "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
+        "status" : "failed",
+        "time" : {
+          "start" : 1617362296748,
+          "stop" : 1617362296748,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8d89788b03808d3beec6ddf8e7d75f3d"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  }, {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "swagger_client.rest.ApiException: (500)\nReason: \nHTTP response headers: HTTPHeaderDict({'Date': 'Fri, 02 Apr 2021 11:18:16 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nHTTP response body: {\n  \"model_type\" : \"JsonSerializedException\",\n  \"exType\" : \"DsEntityNotFoundException\",\n  \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\n  \"path\" : \"/portal/equipment?equipmentId=23\",\n  \"timestamp\" : 1617362296615\n}",
+      "children" : [ {
+        "name" : "test_firmware_upgrade_request",
+        "uid" : "f7352555fe64860a",
+        "parentUid" : "fbedb883226830e1ab070ff4c44dbca7",
+        "status" : "broken",
+        "time" : {
+          "start" : 1617362295868,
+          "stop" : 1617362295868,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "fbedb883226830e1ab070ff4c44dbca7"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}

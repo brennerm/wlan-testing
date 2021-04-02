@@ -1,0 +1,281 @@
+[ {
+  "uid" : "c6968eb304b125e4",
+  "name" : "test_ssid_wpa2_personal_5g",
+  "time" : {
+    "start" : 1617362308942,
+    "stop" : 1617362308943,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f7352555fe64860a",
+  "name" : "test_firmware_upgrade_request",
+  "time" : {
+    "start" : 1617362295868,
+    "stop" : 1617362295868,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "80fc56b0db1244d2",
+  "name" : "test_profile_hard_cleanup",
+  "time" : {
+    "start" : 1617362302912,
+    "stop" : 1617362302912,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6ab6c2973d8f7166",
+  "name" : "test_with_link",
+  "time" : {
+    "start" : 1617362296761,
+    "stop" : 1617362296761,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1a158cf7bcd77341",
+  "name" : "test_something_1001",
+  "time" : {
+    "start" : 1617362296756,
+    "stop" : 1617362296756,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "42bd3722dce847e",
+  "name" : "test_something_2",
+  "time" : {
+    "start" : 1617362231966,
+    "stop" : 1617362231967,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "197b2f04911d0407",
+  "name" : "test_reset_profile",
+  "time" : {
+    "start" : 1617362307820,
+    "stop" : 1617362307820,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "21163a4dd39f0c27",
+  "name" : "test_active_version_cloud",
+  "time" : {
+    "start" : 1617362296748,
+    "stop" : 1617362296748,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "4682137297ef321b",
+  "name" : "test_something_1002",
+  "time" : {
+    "start" : 1617362296757,
+    "stop" : 1617362296758,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7d3179099e48a65b",
+  "name" : "test_profile_cleanup",
+  "time" : {
+    "start" : 1617362302915,
+    "stop" : 1617362306974,
+    "duration" : 4059
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c955cc0ef5408ef1",
+  "name" : "test_with_testcase_link",
+  "time" : {
+    "start" : 1617362296767,
+    "stop" : 1617362296767,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "906b89d7e52e6af0",
+  "name" : "test_cloud_sdk_version",
+  "time" : {
+    "start" : 1617362293223,
+    "stop" : 1617362293286,
+    "duration" : 63
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "99cce9d622f96419",
+  "name" : "test_ssid_wpa_2g",
+  "time" : {
+    "start" : 1617362308401,
+    "stop" : 1617362308401,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4057e6fb3e8b6cfc",
+  "name" : "test_ssid_wpa2_enterprise_5g",
+  "time" : {
+    "start" : 1617362309621,
+    "stop" : 1617362309621,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7aa53c5ab3d1939b",
+  "name" : "test_ssid_wpa2_enterprise_2g",
+  "time" : {
+    "start" : 1617362309176,
+    "stop" : 1617362309176,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f8bb8e5b14835f99",
+  "name" : "test_ssid_wpa_5g",
+  "time" : {
+    "start" : 1617362308118,
+    "stop" : 1617362308118,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a97e5e9ae684038b",
+  "name" : "test_radius_profile_creation",
+  "time" : {
+    "start" : 1617362307816,
+    "stop" : 1617362307817,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2cfa630365c28fea",
+  "name" : "test_ap_manager_state",
+  "time" : {
+    "start" : 1617362293212,
+    "stop" : 1617362293212,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "c5b3735bbb30634e",
+  "name" : "test_firmware_create",
+  "time" : {
+    "start" : 1617362295866,
+    "stop" : 1617362295867,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c6ce71949c02e3da",
+  "name" : "test_with_named_link",
+  "time" : {
+    "start" : 1617362296763,
+    "stop" : 1617362296763,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a212716a6e6762a3",
+  "name" : "test_something_1",
+  "time" : {
+    "start" : 1617362296754,
+    "stop" : 1617362296754,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9385c1986bd8e73b",
+  "name" : "test_something_3",
+  "time" : {
+    "start" : 1617362293218,
+    "stop" : 1617362293218,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ef295be64fd92b6f",
+  "name" : "test_with_issue_link",
+  "time" : {
+    "start" : 1617362296765,
+    "stop" : 1617362296765,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a69beb2593059492",
+  "name" : "test_something_1003",
+  "time" : {
+    "start" : 1617362296759,
+    "stop" : 1617362296759,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6620feffbf5c3b61",
+  "name" : "test_radius_profile_creation",
+  "time" : {
+    "start" : 1617362307080,
+    "stop" : 1617362307080,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8af8c5889fc8c4c0",
+  "name" : "test_ap_firmware",
+  "time" : {
+    "start" : 1617362243092,
+    "stop" : 1617362243092,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "70e817ed3b1a6f1a",
+  "name" : "test_ssid_wpa2_personal_2g",
+  "time" : {
+    "start" : 1617362308746,
+    "stop" : 1617362308746,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7d72f0eac5242b07",
+  "name" : "test_apnos_cloud",
+  "time" : {
+    "start" : 1617362293220,
+    "stop" : 1617362293220,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

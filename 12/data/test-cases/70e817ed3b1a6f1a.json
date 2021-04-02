@@ -1,0 +1,266 @@
+{
+  "uid" : "70e817ed3b1a6f1a",
+  "name" : "test_ssid_wpa2_personal_2g",
+  "fullName" : "cloudsdk_tests.test_profile.TestProfilesBridge#test_ssid_wpa2_personal_2g",
+  "historyId" : "21b2071884105ba3d23c81d58df26d50",
+  "time" : {
+    "start" : 1617362308746,
+    "stop" : 1617362308746,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setup_profile_data",
+    "time" : {
+      "start" : 1617362302914,
+      "stop" : 1617362302914,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_profile",
+    "time" : {
+      "start" : 1617362302914,
+      "stop" : 1617362302914,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "create_wpa2_p_ssid_2g_profile_bridge",
+    "time" : {
+      "start" : 1617362308403,
+      "stop" : 1617362308745,
+      "duration" : 342
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk",
+    "time" : {
+      "start" : 1617362241987,
+      "stop" : 1617362242292,
+      "duration" : 305
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session",
+    "time" : {
+      "start" : 1617362231976,
+      "stop" : 1617362231976,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "51cbd693b3b009a3",
+      "name" : "stdout",
+      "source" : "51cbd693b3b009a3.txt",
+      "type" : "text/plain",
+      "size" : 3
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "setup_profile_data::0",
+    "time" : {
+      "start" : 1617362309625,
+      "stop" : 1617362309625,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_profile::0",
+    "time" : {
+      "start" : 1617362309626,
+      "stop" : 1617362309626,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "create_wpa2_p_ssid_2g_profile_bridge::0",
+    "time" : {
+      "start" : 1617362309624,
+      "stop" : 1617362309624,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "instantiate_cloudsdk::0",
+    "time" : {
+      "start" : 1617362309629,
+      "stop" : 1617362309629,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  }, {
+    "name" : "testrun_session::0",
+    "time" : {
+      "start" : 1617362309631,
+      "stop" : 1617362309631,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "sanity(after='TestRadiusProfile')"
+  }, {
+    "name" : "tag",
+    "value" : "ssid"
+  }, {
+    "name" : "tag",
+    "value" : "wpa2_personal"
+  }, {
+    "name" : "tag",
+    "value" : "bridge"
+  }, {
+    "name" : "tag",
+    "value" : "twog"
+  }, {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_profile"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProfilesBridge"
+  }, {
+    "name" : "host",
+    "value" : "a93eea2639cd"
+  }, {
+    "name" : "thread",
+    "value" : "72-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_tests.test_profile"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "25175d6b945516b0",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/25175d6b945516b0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617359166914,
+          "stop" : 1617359166915,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "20f0dd147a802293",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/20f0dd147a802293",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617358961127,
+          "stop" : 1617358961128,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ "sanity(after='TestRadiusProfile')", "wpa2_personal", "bridge", "ssid", "twog" ]
+  },
+  "source" : "70e817ed3b1a6f1a.json",
+  "parameterValues" : [ ]
+}

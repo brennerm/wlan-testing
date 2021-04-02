@@ -1,0 +1,57 @@
+{
+  "uid" : "c6ce71949c02e3da",
+  "name" : "test_with_named_link",
+  "fullName" : "cloudsdk_tests.test_cloud#test_with_named_link",
+  "historyId" : "c6970a12b7fa2a20d413637cb6d5c3e4",
+  "time" : {
+    "start" : 1617362296763,
+    "stop" : 1617362296763,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_cloud"
+  }, {
+    "name" : "host",
+    "value" : "a93eea2639cd"
+  }, {
+    "name" : "thread",
+    "value" : "72-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_tests.test_cloud"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "Click me",
+    "url" : "https://www.youtube.com/watch?v=Su5p2TqZxKU",
+    "type" : "link"
+  } ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c6ce71949c02e3da.json",
+  "parameterValues" : [ ]
+}
