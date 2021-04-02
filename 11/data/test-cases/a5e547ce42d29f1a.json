@@ -1,0 +1,76 @@
+{
+  "uid" : "a5e547ce42d29f1a",
+  "name" : "test_apnos_cloud",
+  "fullName" : "cloudsdk_apnos.test_cloudsdk_apnos.TestCloudAPNOS#test_apnos_cloud",
+  "historyId" : "f72960165ebefa0c8349f50d52014a6b",
+  "time" : {
+    "start" : 1617359153322,
+    "stop" : 1617359153322,
+    "duration" : 0
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "cloudsdk_apnos"
+  }, {
+    "name" : "suite",
+    "value" : "test_cloudsdk_apnos"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestCloudAPNOS"
+  }, {
+    "name" : "host",
+    "value" : "05f82695c5bd"
+  }, {
+    "name" : "thread",
+    "value" : "71-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cloudsdk_apnos.test_cloudsdk_apnos"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "56a7392cad45e223",
+        "reportUrl" : "https://Telecominfraproject.github.io/wlan-testing/11//#testresult/56a7392cad45e223",
+        "status" : "passed",
+        "time" : {
+          "start" : 1617358941263,
+          "stop" : 1617358941263,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "a5e547ce42d29f1a.json",
+  "parameterValues" : [ ]
+}

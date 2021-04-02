@@ -6,12 +6,12 @@
       "name" : "AssertionError: assert False",
       "children" : [ {
         "name" : "test_ap_firmware",
-        "uid" : "c29bde610c09648a",
+        "uid" : "ffae9285659c5dc0",
         "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
         "status" : "failed",
         "time" : {
-          "start" : 1617358891148,
-          "stop" : 1617358891148,
+          "start" : 1617359103188,
+          "stop" : 1617359103188,
           "duration" : 0
         },
         "flaky" : false,
@@ -19,26 +19,26 @@
         "parameters" : [ ]
       }, {
         "name" : "test_ap_manager_state",
-        "uid" : "d8b4a3110a6a3cec",
+        "uid" : "3d5a88ad48298da6",
         "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
         "status" : "failed",
         "time" : {
-          "start" : 1617358941256,
-          "stop" : 1617358941256,
-          "duration" : 0
+          "start" : 1617359153312,
+          "stop" : 1617359153313,
+          "duration" : 1
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       }, {
         "name" : "test_active_version_cloud",
-        "uid" : "29205850760bb11f",
+        "uid" : "f8105f5cf570ea53",
         "parentUid" : "8d89788b03808d3beec6ddf8e7d75f3d",
         "status" : "failed",
         "time" : {
-          "start" : 1617358944138,
-          "stop" : 1617358944138,
-          "duration" : 0
+          "start" : 1617359156547,
+          "stop" : 1617359156548,
+          "duration" : 1
         },
         "flaky" : false,
         "newFailed" : false,
@@ -50,22 +50,22 @@
   }, {
     "name" : "Test defects",
     "children" : [ {
-      "name" : "swagger_client.rest.ApiException: (500)\nReason: \nHTTP response headers: HTTPHeaderDict({'Date': 'Fri, 02 Apr 2021 10:22:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nHTTP response body: {\n  \"model_type\" : \"JsonSerializedException\",\n  \"exType\" : \"DsEntityNotFoundException\",\n  \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\n  \"path\" : \"/portal/equipment?equipmentId=23\",\n  \"timestamp\" : 1617358944013\n}",
+      "name" : "swagger_client.rest.ApiException: (500)\nReason: \nHTTP response headers: HTTPHeaderDict({'Date': 'Fri, 02 Apr 2021 10:25:56 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST, PATCH, PUT, HEAD, GET, OPTIONS, DELETE', 'Access-Control-Max-Age': '10', 'Access-Control-Allow-Headers': 'x-requested-with,Content-Type,content-type,Authorization', 'Access-Control-Allow-Credentials': 'true', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '1; mode=block', 'Strict-Transport-Security': 'max-age=31536000 ; includeSubDomains', 'X-Frame-Options': 'DENY', 'Cache-Control': 'no-cache, no-store, max-age=0, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'vary': 'accept-encoding'})\nHTTP response body: {\n  \"model_type\" : \"JsonSerializedException\",\n  \"exType\" : \"DsEntityNotFoundException\",\n  \"error\" : \"org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0\",\n  \"path\" : \"/portal/equipment?equipmentId=23\",\n  \"timestamp\" : 1617359156407\n}",
       "children" : [ {
         "name" : "test_firmware_upgrade_request",
-        "uid" : "908cb520d8c293bf",
-        "parentUid" : "a3d42db1c3b07a4ebf2dab532ffc80a3",
+        "uid" : "bc477c1860d7cf2",
+        "parentUid" : "595b18e6e45d54f33430de2100526891",
         "status" : "broken",
         "time" : {
-          "start" : 1617358943727,
-          "stop" : 1617358943727,
+          "start" : 1617359155913,
+          "stop" : 1617359155913,
           "duration" : 0
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ ]
       } ],
-      "uid" : "a3d42db1c3b07a4ebf2dab532ffc80a3"
+      "uid" : "595b18e6e45d54f33430de2100526891"
     } ],
     "uid" : "bdbf199525818fae7a8651db9eafe741"
   } ],
