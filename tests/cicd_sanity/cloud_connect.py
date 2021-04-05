@@ -70,6 +70,7 @@ class CloudSDK:
 
     def firwmare_upload(commit, apModel,latest_image,fw_url,cloudSDK_url,bearer):
         fw_upload_url = cloudSDK_url+"/portal/firmware/version"
+        latest_image = (latest_image[:40] + '..') if len(latest_image) > 40 else latest_image
         payload = "{\n  \"model_type\": \"FirmwareVersion\",\n  \"id\": 0,\n  \"equipmentType\": \"AP\",\n  \"modelId\": \""+apModel+"\",\n  \"versionName\": \""+latest_image+"\",\n  \"description\": \"\",\n  \"filename\": \""+fw_url+"\",\n  \"commit\": \""+commit+"\",\n  \"validationMethod\": \"MD5_CHECKSUM\",\n  \"validationCode\": \"19494befa87eb6bb90a64fd515634263\",\n  \"releaseDate\": 1596192028877,\n  \"createdTimestamp\": 0,\n  \"lastModifiedTimestamp\": 0\n}\n\n"
         headers = {
             'Content-Type': 'application/json',
@@ -77,7 +78,7 @@ class CloudSDK:
         }
 
         response = requests.request("POST", fw_upload_url, headers=headers, data=payload)
-        #print(response)
+        # print(response)
         upload_result = response.json()
         return(upload_result)
 

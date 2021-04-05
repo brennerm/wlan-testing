@@ -388,7 +388,10 @@ for model in ap_models:
     if trunk_image:
         print('Using trunk image!')
         url = jfrog_url + apModel + "/trunk/"
-        latest_image = Build.get_latest_image(url, '.tar.gz')
+        if trunk_image and build != 'pending':
+            latest_image = Build.get_latest_image(url, build)
+        else:
+            latest_image = Build.get_latest_image(url, '.tar.gz')
         print(model, "Latest FW on jFrog:", latest_image)
         ap_latest_dict[model] = latest_image
     else:
@@ -644,7 +647,7 @@ for key in equipment_ids:
                 logger.warning('Firmware upgrade API failed to send')
                 continue
 
-            time.sleep(300)
+            time.sleep(180)
 
         # Check if upgrade success is displayed on CloudSDK
         test_id_cloud = test_cases["cloud_fw"]
@@ -1151,7 +1154,6 @@ for key in equipment_ids:
                 radio = test_info.lanforge_wifi6_radio
             else:
                 radio = test_info.lanforge_24g_radio
-            #station = [lanforge_prefix + "2420"]
             station = [test_info.lanforge_station]
             prefix = test_info.lanforge_prefix
             ssid_name = profile_info_dict[fw_model]["twoFourG_WPA_SSID"]
@@ -1625,6 +1627,7 @@ for key in equipment_ids:
                 #sta_list = [lanforge_prefix + "5217"]
                 sta_list = [test_info.lanforge_station]
                 prefix = test_info.lanforge_prefix
+
                 ssid_name = profile_info_dict[fw_model + '_nat']["fiveG_WPA2-EAP_SSID"]
                 security = "wpa2"
                 eap_type = "TTLS"
